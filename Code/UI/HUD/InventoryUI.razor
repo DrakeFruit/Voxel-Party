@@ -2,6 +2,7 @@
 @using Sandbox.UI;
 @using System;
 @inherits PanelComponent
+@namespace VoxelParty.UI
 
 <root onclick=@((e) => { if (Player.HasCreativeInventory && e.Target == Panel) DropHeldItem(); })>
 	<div class="container">

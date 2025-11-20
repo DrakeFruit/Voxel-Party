@@ -1,5 +1,7 @@
 using Sandbox.UI;
 
+namespace VoxelParty.UI;
+
 public partial class Dropdown : Panel
 {
     [Property, TextArea] public string Text { get; set; } = " ";

@@ -1,4 +1,5 @@
 using Sandbox.UI;
+namespace VoxelParty.UI;
 
 public partial class Option : Panel
 {

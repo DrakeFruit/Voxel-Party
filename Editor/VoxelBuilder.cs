@@ -185,7 +185,7 @@ public partial class VoxelBuilder : EditorTool
 	public override void OnDisabled()
 	{
 		base.OnDisabled();
-		Camera?.Attributes.Set( "MAXDISTANCE", 100f );
+		Camera?.Scene.RenderAttributes.Set( "MAXDISTANCE", 100f );
 	}
 
 	public static Dictionary<string, bool> WasKeyDown = new Dictionary<string, bool>();
@@ -194,7 +194,7 @@ public partial class VoxelBuilder : EditorTool
 	public override void OnUpdate()
 	{
 
-		Camera?.Attributes.Set( "MAXDISTANCE", 10000f );
+		Camera?.Scene.RenderAttributes.Set( "MAXDISTANCE", 10000f );
 		watchers.RemoveAll( w => w == null || w.Target == null || !w.Target.IsValid() );
 		foreach ( var watcher in watchers )
 		{

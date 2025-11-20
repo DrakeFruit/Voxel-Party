@@ -83,10 +83,17 @@ public static class TexArrayTool
             .WithFormat( ImageFormat.RGBA8888 )
             .WithName( "TextureAtlas" )
             .Finish();
+        
         for ( int i = 0; i < textures.Count; i++ )
-        {
+        { 
             if ( textures[i] != null )
             {
+                if ( textures[i].GetPixels().Length * 4 != 1024 )
+                {
+                    Log.Warning( $"Texture at index {i} has invalid size {textures[i].Width}x{textures[i].Height}, expected 16x16." );
+                    Log.Warning( $"Texture Resource Name: {textures[i].ResourceId} : ${textures[i].ResourceName} : ${textures[i].ResourcePath}" );
+                    continue;
+                }
                 last.Update( textures[i].GetPixels().SelectMany( p => new[] { p.r, p.g, p.b, p.a } ).ToArray(), (i % tilesWide) * 16, (i / tilesWide) * 16, 16, 16 );
             }
         }

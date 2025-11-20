@@ -1,5 +1,6 @@
 using System;
 using Sandbox.UI;
+namespace VoxelParty.UI;
 
 public partial class SpeedBuildHud : PanelComponent
 {

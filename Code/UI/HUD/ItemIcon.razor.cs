@@ -1,6 +1,8 @@
 using System;
 using Sandbox.UI;
 
+namespace VoxelParty.UI;
+
 public partial class ItemIcon : Panel
 {
     public Inventory Inventory => VoxelPlayer.LocalPlayer.inventory;

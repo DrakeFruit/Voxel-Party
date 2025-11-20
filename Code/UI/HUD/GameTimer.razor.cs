@@ -1,5 +1,8 @@
 using System;
 using Sandbox.UI;
+
+namespace VoxelParty.UI;
+
 public partial class GameTimer : Panel
 {
     public float TotalTime { get; set; } = 60f; // Default to 60 seconds

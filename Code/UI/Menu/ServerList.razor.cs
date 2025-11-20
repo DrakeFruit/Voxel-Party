@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Sandbox.Network;
 using Sandbox.UI;
+namespace VoxelParty.UI;
 
 public partial class ServerList : Panel
 {

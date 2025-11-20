@@ -1,5 +1,6 @@
 @using Sandbox.UI;
 @inherits PanelComponent
+@namespace VoxelParty.UI
 <root class="@((VoxelPlayer.LocalPlayer?.TextBoxVisible ?? false) ? "dim" : "")">
     <GameTimer class="@(HasTimer ? "" : "hidden")" @ref=timer TimerEnd=@(TimerEnd) TotalTime=@(TotalTime) />
     <div @ref=message

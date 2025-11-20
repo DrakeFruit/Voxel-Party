@@ -1,4 +1,6 @@
 using System;
+namespace VoxelParty.UI;
+
 public partial class Menu : PanelComponent
 {
     public bool IsVisible { get; set; } = true;

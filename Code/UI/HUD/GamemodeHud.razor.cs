@@ -1,6 +1,8 @@
 using System;
 using Sandbox.UI;
 
+namespace VoxelParty.UI;
+
 public partial class GamemodeHud : PanelComponent
 {
     // a HUD used for Speed Build specific stuff

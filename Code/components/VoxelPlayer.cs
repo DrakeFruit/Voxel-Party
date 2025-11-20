@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Sandbox.UI;
 using Sandbox.Utility;
+using VoxelParty.UI;
 
 public partial class VoxelPlayer : Component
 {

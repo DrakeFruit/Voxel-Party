@@ -3,6 +3,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Sandbox.UI;
 
+namespace VoxelParty.UI;
+
 public partial class CharacterCreator : Panel
 {
     public static List<Skin> Skins { get; set; } = new();

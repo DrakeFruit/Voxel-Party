@@ -2,6 +2,8 @@ using System;
 using Sandbox.Network;
 using Sandbox.UI;
 
+namespace VoxelParty.UI;
+
 public partial class LobbyCreator : Panel
 {
     TextEntry LobbyNameInput { get; set; }
