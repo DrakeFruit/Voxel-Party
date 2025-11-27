@@ -14,6 +14,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -34,7 +35,7 @@
           "ZIndex": 100
         },
         {
-          "__type": "Menu",
+          "__type": "VoxelParty.UI.Menu",
           "__guid": "1132a738-7ee6-4380-bf4c-4d077561735b",
           "__enabled": true,
           "OnComponentDestroy": null,
@@ -60,6 +61,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -127,6 +129,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 1,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -144,6 +147,7 @@
           "RenderChunkRadius": 5,
           "RenderForgetRadius": 8,
           "SerializedWorld": "//////////8AAAAAJwIAAJoAAAACAE0AAAACAE0AAAACAE0AAAACAE0AAEICAE0AAAADAE0AAAADAE0AAAADAE0AAAADAE0AAAADAKoAAAABAE0AAAABAE0AAAABAE0AAAABAE0AAEIBAEoAAAENBAAAQAEATQAAAAEA2gAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAQgEASwAAQQEA6gAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAQgEATAAAQAEATQAAAAEATQAAAAEAygAAAAEATQAAAAEATQAAAAEATQAAQgEASgAAQgEASgAAQgEASwAAQQEATAAAQAEATAAAQAEATQAAAAEATQAAAAEAmgAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAQgEASgAAQgEASgAAQgEASgAAQgEASgAAQgEASgAAQgEASgAAQgEAmgAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEAnQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEAnQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEATQAAAAEA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAAeAAAAAAAAP////8AAAAAQQEAAM4AAEACAAABAEsAAEADAAABAEsAAEADAAABAEsAAEADAAABAEsAAEADAAABAEsAAEADAAABAEsAAEADAAABANsAAEEBAEsAAEEBAEsAAEEBAEwAAEABAEwAAEABAE0AAAABAE0AAAABANsAAEEBAEsAAEEBAEwAAEABAEwAAEABAEwAAEABAEwAAEABAE0AAAABANsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAMsAAEABAEwAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBANsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAH4AAP////8AAAAAAAAAABwCAACdAAAAAQBKAABCAgBKAAAAAgBNAAAAAgBNAAAAAgBNAAAAAgBNAAAAAgDeAABBAQBKAABCAQBKAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQDeAABBAQBKAABCAQBKAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQDdAABCAQBKAABCAQBKAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQDAAAAAAQBLAABBAQBKAABCAQBKAABCAQBKAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQCNAABCAQBKAABCAQBKAABCAQBKAABCAQBKAABCAQBKAABCAQBKAABCAQBKAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQCNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQCNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQCNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQBNAAAAAQD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAC4AAD///////////////93AQAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAASwAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAnQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAnQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAnQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAQgMAmgAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAQgMASgAAQgMASgAAQgMASgAAQgMASgAAQgMATAAAQAMAAAAAAAAAAAAAAAAALwEAAAIAAAMAAQBMAAABAwABAE0AAAABAE0AAAABAE0AAAABAEsAAEEBAEsAAEACAAABAN0AAAABAE0AAAABAE0AAAABAE0AAAABAE0AAAABAEsAAEEBAEsAAEEBAN0AAAABAE0AAAABAE0AAAABAE0AAAABAEwAAEABAEsAAEEBAEsAAEEBANsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBANsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBANsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAEsAAEEBAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAP8AAE0AAAAAAAD//////////34AAAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AADbAABAAwDeAAAAAQBLAABAAwAAAQBLAABAAwAAAQBLAABAAwAAAQBLAABAAwAAAQBLAABAAwAAAQBLAABAAwAAAQBLAAD/////AAAAAP////+aAQAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAAvAAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAjQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAjQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAjQAAQgMASgAAQgMASgAAQgMASgAAQgMASgAAQgMASgAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIATQAAAAIAjwAAQAMATAAAQAMATAAAQAMATAAAQAMASgAAAQ0DAABAAwBKAABCAwBKAABCAgBKAAAAAgBNAAAAAgBNAAAAAgBNAAAAAgBNAAAAAgCBAAAAAAAAAAAAAP////+WAAAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAArAAAQAMATAAAQAMATAAAQAMATAAAQAMATAAAQAMA/AAAQAMAAAEASwAAQAMAAAEASwAAQAMAAAEASwAAQAMAAAEASwAAQAMAAAEASwAAQAMAAAEASwAAQAIAAAEA2wAA",
+          "SerializedWorldById": "//////////8AAAAAyAEAAAUADnZveGVscGFydHk6YWlyAA92b3hlbHBhcnR5OmRpcnQAEHZveGVscGFydHk6Z3Jhc3MAEHZveGVscGFydHk6c3RvbmUAEHZveGVscGFydHk6dG9yY2gEmgAAAU0AAAFNAAABTQAAAU0AQgFNAAACTQAAAk0AAAJNAAACTQAAAqoAAANNAAADTQAAA00AAANNAEIDSgABBABAA00AAAPaAAADTQAAA00AAANNAAADTQBCA0sAQQPqAAADTQAAA00AAANNAAADTQBCA0wAQANNAAADTQAAA8oAAANNAAADTQAAA00AQgNKAEIDSgBCA0sAQQNMAEADTABAA00AAANNAAADmgAAA00AAANNAAADTQAAA00AQgNKAEIDSgBCA0oAQgNKAEIDSgBCA0oAQgOaAAADTQAAA00AAANNAAADTQAAA00AAANNAAADTQAAA00AAANNAAADTQAAA50AAANNAAADTQAAA00AAANNAAADTQAAA00AAANNAAADTQAAA00AAANNAAADnQAAA00AAANNAAADTQAAA00AAANNAAADTQAAA00AAANNAAADTQAAA00AAAP/AP8A/wD/AP8A/wD/AP8A/wB4AAAAAAD/////AAAAAB0BAAAEAA52b3hlbHBhcnR5OmFpcgAPdm94ZWxwYXJ0eTpkaXJ0ABB2b3hlbHBhcnR5OnN0b25lABB2b3hlbHBhcnR5OmdyYXNzAM4AQAEAAksAQAMAAksAQAMAAksAQAMAAksAQAMAAksAQAMAAksAQAMAAtsAQQJLAEECSwBBAkwAQAJMAEACTQAAAk0AAALbAEECSwBBAkwAQAJMAEACTABAAkwAQAJNAAAC2wBBAksAQQJLAEECSwBBAksAQQJLAEECSwBBAssAQAJMAEECSwBBAksAQQJLAEECSwBBAksAQQJLAEEC2wBBAksAQQJLAEECSwBBAksAQQJLAEECSwBBAv8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8AfgD/////AAAAAAAAAACdAQAAAwAOdm94ZWxwYXJ0eTphaXIAEHZveGVscGFydHk6c3RvbmUAD3ZveGVscGFydHk6ZGlydACdAAABSgBCAkoAAAJNAAACTQAAAk0AAAJNAAAC3gBBAUoAQgFKAAABTQAAAU0AAAFNAAABTQAAAd4A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",
           "TextureAtlas": "materials/textureatlas.vmat",
           "TranslucentTextureAtlas": "materials/textureatlastranslucent.vmat",
           "UnloadBatchSize": 10
@@ -151,7 +155,7 @@
       ],
       "Children": [
         {
-          "__guid": "3a8657b9-299f-41a5-b87c-a5438153d7c2",
+          "__guid": "0d56b773-3a0f-48db-9440-f42128a40278",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, -1, 0)",
@@ -163,11 +167,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "218d8798-0091-4e76-8ec6-5c5d32976696",
+              "__guid": "cf8c0b28-9c82-44ad-9ea0-2ea90232876c",
               "__enabled": true,
               "ChunkPosition": "-1,-1,0",
               "OnComponentDestroy": null,
@@ -180,10 +185,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "0f3de3e5-01a2-481a-ba05-6575597c1cd9",
+              "__guid": "9cc59db3-2e80-4329-882c-58b5c5cc97b8",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -205,8 +211,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "ecd74fd2-6e0e-453b-b5aa-0e85fe1cbc43",
+              "__guid": "4eca6c94-d14a-4ad3-bfcd-9779e037b0db",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -229,7 +236,7 @@
           ],
           "Children": [
             {
-              "__guid": "1c60b1ba-af3a-485d-b96f-930f8c9bf55a",
+              "__guid": "646100b8-40ef-456f-a071-8d269eb8bf1a",
               "__version": 1,
               "__Prefab": "prefabs/blockobjects/torch.prefab",
               "__PrefabInstancePatch": {
@@ -264,22 +271,22 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "eac1c917-0ae2-43bc-b477-8c58f16f5f15": "1c60b1ba-af3a-485d-b96f-930f8c9bf55a",
-                "8f167d02-3c14-4df8-9485-45dc17ba680b": "1048c079-b440-4ce9-b1a5-70eee23cf367",
-                "6dd468f6-59ac-44a2-b93d-c2c89186451a": "a3c4450a-135e-41cd-ba18-3a0bcd61edcc",
-                "1d23df2b-ed44-42a4-af97-df64d11b5842": "81b8d1bc-3dc9-4e0b-be55-ef137dbf3cca",
-                "4039f075-e9d5-41f7-9068-6df06380eb26": "9c315cd7-197a-4f25-80be-6d6c2f1a855b",
-                "6bf7ceaa-dad3-4f6e-bc8c-8acf63f069bb": "c328a9a6-c15a-4fb3-9bb8-5e07b560ffa3",
-                "85b15597-3f51-45cd-ac5e-a1f02bc32e62": "ac492c42-9769-489f-9e81-477dce48db8f",
-                "b93898d9-6dd2-4ea9-9e77-cb53155c2002": "32772963-5a29-470f-97ea-2961726501b0",
-                "80f82b36-ee9c-4937-b527-68c2b616ba97": "5613add9-a2c2-40bb-8b9e-33ae85fbab39",
-                "d016755f-0592-40b6-bc3b-22898a10153b": "867faf29-9db7-40fc-a276-690a80708243"
+                "eac1c917-0ae2-43bc-b477-8c58f16f5f15": "646100b8-40ef-456f-a071-8d269eb8bf1a",
+                "8f167d02-3c14-4df8-9485-45dc17ba680b": "f3f69b35-2ace-4f20-824a-0311fd39af6c",
+                "6dd468f6-59ac-44a2-b93d-c2c89186451a": "ebfe1761-a572-41e9-8cef-504dab784c93",
+                "1d23df2b-ed44-42a4-af97-df64d11b5842": "198d0a62-b275-4f64-9c6c-1e3a0b4644e2",
+                "4039f075-e9d5-41f7-9068-6df06380eb26": "02e2b658-e781-405e-b01d-81178852bcce",
+                "6bf7ceaa-dad3-4f6e-bc8c-8acf63f069bb": "6247ab63-0c65-4030-ab61-c62c25901811",
+                "85b15597-3f51-45cd-ac5e-a1f02bc32e62": "a72d93a8-b1db-43dd-836d-85154a04a215",
+                "b93898d9-6dd2-4ea9-9e77-cb53155c2002": "28af3cff-8006-40eb-ab8a-63c0d8ba448c",
+                "80f82b36-ee9c-4937-b527-68c2b616ba97": "e2b98f5c-fc36-4aaa-830c-0d6561864bc5",
+                "d016755f-0592-40b6-bc3b-22898a10153b": "0d377781-adcf-4ed9-85a5-749fbd80d526"
               }
             }
           ]
         },
         {
-          "__guid": "733c6093-c450-4d54-8b4c-3d9f78963e0e",
+          "__guid": "9fcb2c58-e428-4bb9-badd-0636b196fe67",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, -1, 0)",
@@ -291,11 +298,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "24ea9b4f-e709-4eca-80b7-9236f2142925",
+              "__guid": "bf173f0b-50cb-4ccb-a3da-e393ef5eccd8",
               "__enabled": true,
               "ChunkPosition": "0,-1,0",
               "OnComponentDestroy": null,
@@ -308,10 +316,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "7db23cc3-8cc9-42ad-bf77-ab215fe6f38c",
+              "__guid": "008b861b-72bd-4d5b-9eac-2e067f3a0761",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -333,8 +342,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "4b462aaa-7c96-4abe-99ea-06a23d49afa8",
+              "__guid": "3d9b01bc-e61e-4355-8af0-8e706bee8b94",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -358,7 +368,7 @@
           "Children": []
         },
         {
-          "__guid": "d39149fe-a749-4ce0-a51a-16f684737af1",
+          "__guid": "0e153da3-27e9-4329-9920-70c48e262d7d",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, 0, 0)",
@@ -370,11 +380,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "a0aa2d7f-f5fc-4bad-9d3b-69da53188052",
+              "__guid": "fdf58c51-9425-4291-9389-f40eb221e436",
               "__enabled": true,
               "ChunkPosition": "-1,0,0",
               "OnComponentDestroy": null,
@@ -387,10 +398,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "e6dcddb0-b3ad-45b9-92aa-de7b7e4044a7",
+              "__guid": "a203d9d6-fcb9-4216-95dc-6738514013db",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -412,8 +424,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "d93716e1-a148-4bdd-9e90-81d14cbde338",
+              "__guid": "3cd70dce-649f-4242-adf3-eaf8f0182143",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -437,7 +450,7 @@
           "Children": []
         },
         {
-          "__guid": "a6217261-301f-4477-bb0b-561ff73c8a87",
+          "__guid": "0871a562-cd48-4c6f-bd7e-ff6105a6b640",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, -1, -1)",
@@ -449,11 +462,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "1ec2406e-08b3-485e-b4c2-e03dac4bba35",
+              "__guid": "f0f74e54-7938-415d-972f-ea98e08d91e7",
               "__enabled": true,
               "ChunkPosition": "-1,-1,-1",
               "OnComponentDestroy": null,
@@ -466,10 +480,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "14332fd7-d455-4331-ae79-2196a67013d6",
+              "__guid": "99ae7ffa-6cc8-4a50-b8cd-94daa9e326a8",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -491,8 +506,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "b316d536-93be-4f7a-8234-9a50d48e041f",
+              "__guid": "0597f99d-2f42-4224-ba03-1576c4b6b562",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -516,7 +532,7 @@
           "Children": []
         },
         {
-          "__guid": "8b824920-74a6-421a-a7d9-cbc757e03b2e",
+          "__guid": "048db0a0-f7d5-439b-bc48-9a6724720fd7",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, 0, 0)",
@@ -528,11 +544,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "30dcd435-72f9-4e49-a513-647f8fbe7913",
+              "__guid": "fffd664e-c376-46fb-b305-e38fa90ace4e",
               "__enabled": true,
               "ChunkPosition": "0,0,0",
               "OnComponentDestroy": null,
@@ -545,10 +562,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "62f4d3ee-03ed-4d56-ba58-45dd018f4537",
+              "__guid": "d9c38294-d653-458f-b696-d236b6933145",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -570,8 +588,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "6d74b8c5-7de4-4eac-a5a8-1fd8c1db4114",
+              "__guid": "6005e81f-a993-48cf-88a5-34d76d1f9bda",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -595,7 +614,7 @@
           "Children": []
         },
         {
-          "__guid": "e368acac-947d-46b7-ad59-244aa09f63b5",
+          "__guid": "c334b6cb-7f5d-479a-8ca0-329fcbbb50ae",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, -1, -1)",
@@ -607,11 +626,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "4aa6ed0f-d047-4fec-ba14-ecb9dd73c220",
+              "__guid": "2ce4830c-f2f4-4b33-98a9-c30dc65c4f09",
               "__enabled": true,
               "ChunkPosition": "0,-1,-1",
               "OnComponentDestroy": null,
@@ -624,10 +644,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "c070eaac-e3a7-4ef3-afa3-28be0081aaa5",
+              "__guid": "709a6890-c714-4d14-9df4-52cf4b388ea1",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -649,8 +670,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "72487bfb-9a96-4ae5-bb1d-35bb11e6d766",
+              "__guid": "8811f627-b6ed-4e64-b027-f1ef2bb6985b",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -674,7 +696,7 @@
           "Children": []
         },
         {
-          "__guid": "5140b8ad-ef6a-4c3b-8ad1-7e82581a2de9",
+          "__guid": "257877ae-8884-49dd-a245-d0aff82c30d2",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, 0, -1)",
@@ -686,11 +708,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "3e83002a-4924-47cf-b010-409a5b2167a5",
+              "__guid": "1f94be63-5988-4154-929b-ea95f5b8ccc6",
               "__enabled": true,
               "ChunkPosition": "-1,0,-1",
               "OnComponentDestroy": null,
@@ -703,10 +726,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "e04d34d3-6737-4dd1-9cce-69ae618d8fbf",
+              "__guid": "473f5c20-6b94-4718-af87-30b8ead9bdf3",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -728,8 +752,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "26e6639a-f1a1-451f-9e21-4747de30844d",
+              "__guid": "564dfbfc-7c3c-465d-a685-e03a02783598",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -752,7 +777,7 @@
           ],
           "Children": [
             {
-              "__guid": "ac2a3285-c198-4577-b27e-bbb49dedd686",
+              "__guid": "1506e4ad-4d2c-40d5-bb1b-6228625a25cb",
               "__version": 1,
               "__Prefab": "prefabs/blockobjects/torch.prefab",
               "__PrefabInstancePatch": {
@@ -787,22 +812,22 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "eac1c917-0ae2-43bc-b477-8c58f16f5f15": "ac2a3285-c198-4577-b27e-bbb49dedd686",
-                "8f167d02-3c14-4df8-9485-45dc17ba680b": "d791ca74-a7d8-4ee3-b538-abd797d443f3",
-                "6dd468f6-59ac-44a2-b93d-c2c89186451a": "59fd2b4b-5933-444e-987b-c69ba426705b",
-                "1d23df2b-ed44-42a4-af97-df64d11b5842": "02c904a2-e3df-46ac-8c58-9b13ed75636e",
-                "4039f075-e9d5-41f7-9068-6df06380eb26": "f97ce66a-0b54-4966-8b88-1d1709313f65",
-                "6bf7ceaa-dad3-4f6e-bc8c-8acf63f069bb": "dee8037f-0b7c-4c3e-a7b6-5508b1806ec2",
-                "85b15597-3f51-45cd-ac5e-a1f02bc32e62": "bf2ae77d-cb47-4fc3-a826-938893883a7c",
-                "b93898d9-6dd2-4ea9-9e77-cb53155c2002": "fb28cdf9-daca-4c56-8c14-b5220a299de2",
-                "80f82b36-ee9c-4937-b527-68c2b616ba97": "cd856357-6c92-4e09-86e1-29acd8a5799d",
-                "d016755f-0592-40b6-bc3b-22898a10153b": "84ff544c-3c7d-4557-8943-fb12a2de26f9"
+                "eac1c917-0ae2-43bc-b477-8c58f16f5f15": "1506e4ad-4d2c-40d5-bb1b-6228625a25cb",
+                "8f167d02-3c14-4df8-9485-45dc17ba680b": "3a3ece68-bfe8-4794-8d4d-249e8c08c3af",
+                "6dd468f6-59ac-44a2-b93d-c2c89186451a": "95fd8072-2ae2-493e-a84e-9e0d15900d97",
+                "1d23df2b-ed44-42a4-af97-df64d11b5842": "90b3f349-af20-414c-9d0f-ce6eb832bcaa",
+                "4039f075-e9d5-41f7-9068-6df06380eb26": "720e7f72-ad16-4ac1-a701-7b204759eb00",
+                "6bf7ceaa-dad3-4f6e-bc8c-8acf63f069bb": "5211e0e9-6534-482c-9600-dfedb72d5afe",
+                "85b15597-3f51-45cd-ac5e-a1f02bc32e62": "d7655a4c-dc30-464a-9da6-6824dbfe5ce6",
+                "b93898d9-6dd2-4ea9-9e77-cb53155c2002": "be897417-f3c8-42ac-8896-01192d9536fb",
+                "80f82b36-ee9c-4937-b527-68c2b616ba97": "eedadf9a-39c7-4222-83cb-8bbe8bbbbabd",
+                "d016755f-0592-40b6-bc3b-22898a10153b": "113c68df-19f9-4312-b49a-62fa97788802"
               }
             }
           ]
         },
         {
-          "__guid": "3fee790d-c208-4a74-8a8f-d02f6b3f3e23",
+          "__guid": "4a26ac63-8b47-4695-8363-887dd78f8f4d",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, 0, -1)",
@@ -814,11 +839,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "3fd7d51e-320e-48b1-a679-e3309b1d3097",
+              "__guid": "7efdecf3-0edf-420a-9267-6fdd472e5803",
               "__enabled": true,
               "ChunkPosition": "0,0,-1",
               "OnComponentDestroy": null,
@@ -831,10 +857,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "6053a47c-66dc-49f0-860b-21064e32ea28",
+              "__guid": "d9079cdf-6101-46d8-8d3e-54bc7cfe7587",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -856,8 +883,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "c3ed8217-d242-4827-8826-aaf7272d3361",
+              "__guid": "7b1e5d81-0bcb-40c2-879b-5f57a2ce5b3f",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -895,6 +923,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -906,6 +935,7 @@
           "BoneMergeTarget": null,
           "CreateAttachments": false,
           "CreateBoneObjects": false,
+          "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
@@ -956,6 +986,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -1028,6 +1059,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -1036,6 +1068,7 @@
           "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 50,
           "FovAxis": "Horizontal",
           "IsMainCamera": true,
@@ -1047,9 +1080,11 @@
           "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "spectator",
           "RenderTags": "",
+          "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
@@ -1060,6 +1095,7 @@
           "__guid": "515f8d74-4d1a-42c6-9317-bb4e40a0a228",
           "__enabled": true,
           "__version": 1,
+          "Filter": "Bilinear",
           "Gamma": 2.2,
           "Mode": "Additive",
           "OnComponentDestroy": null,
@@ -1101,7 +1137,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Scale": 0.2
+          "Scale": 0.2,
+          "TexelSize": 1
         },
         {
           "__type": "Sandbox.AmbientOcclusion",
@@ -1117,7 +1154,6 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Quality": "High",
           "Radius": 128,
           "ThinCompensation": 0
         },
@@ -1161,6 +1197,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {

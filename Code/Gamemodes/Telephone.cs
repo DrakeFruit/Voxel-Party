@@ -69,7 +69,7 @@ public class Telephone : Gamemode
 
     void SpawnIsland( int chainIndex, int linkIndex )
     {
-        World.Active.LoadStructure( new Vector3Int( chainIndex * 19, linkIndex * 19, 0 ), BuildBox.StructureData );
+        World.Active.LoadStructureByID( new Vector3Int( chainIndex * 19, linkIndex * 19, 0 ), BuildBox.StructureDataByID );
     }
 
     Transform GetIslandSpawn( int chainIndex, int linkIndex )

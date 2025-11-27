@@ -14,6 +14,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -48,6 +49,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -80,6 +82,7 @@
       "NetworkMode": 1,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 1,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -97,6 +100,7 @@
           "RenderChunkRadius": 5,
           "RenderForgetRadius": 8,
           "SerializedWorld": "//////////8CAAAAfgEAAP8AAP8AAP8AAP8AAP8AAP8AAFEAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHANcAAAAIAEQGAEcAAAAGAEArAEsAAAEGACsATAAAAAYATQAAAAYATQAAAAYATQAAAAYA3QAAAAgARAYARwAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYA3QAAAAgARAYARwAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYA3QAAAQgABABDBgBHAAAABABNAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgDdAAAACABABABCBgBHAAAABABNAAAABABNAAAABgBNAAAABgBNAAAABgBNAAAABgDdAAAACABEBABHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgDXAAAACAD/AAD/AAD/AAD/AAD/AADfAAAAAAAAAAAAAAIAAACBAQAA/wAA/wAA/wAA/wAA/wAAeQAARQcARwAARQcARwAARQcARwAARQcARwAARQcARwAARQcARwAARQcA3QAAAAYATQAAAAYATQAAAAYATQAAAAYATAAAASsABgBLAABAKwAABgBHAABEBgAACADdAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgBHAABEBgAACADdAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgBHAABEBgAACADdAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABABHAABDBgABBAAIAN0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAEAE0AAAAEAEcAAEIGAEAEAAAIANcAAEQGAAAEAEcAAEQGAAAEAEcAAEQGAAAEAEcAAEQGAAAEAEcAAEQGAAAEAEcAAEQGAAAEAEcAAEQEAAAIAP8AAHwAAAAIAP8AAP8AAP8AAP8AAP8AAP8AAFEAAAAAAAD/////AgAAAH4BAAD/AAD/AAD/AAD/AAD/AAD/AABIAABFBwBHAABFBwBHAABFBwBHAABFBwBHAABFBwBHAABFBwBHAABFBwDXAABEBgAACABLAABAKwAABgBMAAABKwAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGANcAAEQGAAAIAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGANcAAEQGAAAIAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAAGANcAAEMGAAEEAAgATQAAAAQATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYA1wAAQgYAQAQAAAgATQAAAAQATQAAAAQATQAAAAYATQAAAAYATQAAAAYATQAAAAYA1wAARAQAAAgARwAARAYAAAQARwAARAYAAAQARwAARAYAAAQARwAARAYAAAQARwAARAYAAAQARwAARAYAAAQA3QAAAAgA/wAA/wAA/wAA/wAA/wAA4gAA/////wAAAAACAAAAgQEAAP8AAP8AAP8AAP8AAP8AAIIAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHAEcAAEUHANcAAAAGAE0AAAAGAE0AAAAGAE0AAAAGAE0AAAEGACsATAAAAAYAQCsASwAAAAgARAYA1wAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAgARAYA1wAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAgARAYA1wAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAYATQAAAAQATQAAAQgABABDBgDXAAAABgBNAAAABgBNAAAABgBNAAAABgBNAAAABABNAAAABABNAAAACABABABCBgDXAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAABABEBgBHAAAACABEBAD/AAB2AAAACAD/AAD/AAD/AAD/AAD/AAD/AABOAAD9////5v///wAAAABFAAAAiwAAACAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA/wAA3AAA",
+          "SerializedWorldById": "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",
           "TextureAtlas": "materials/textureatlas.vmat",
           "TranslucentTextureAtlas": "materials/textureatlastranslucent.vmat",
           "UnloadBatchSize": 10
@@ -104,7 +108,7 @@
       ],
       "Children": [
         {
-          "__guid": "f09edfc3-2da5-4e30-8ed5-816a5176e8cc",
+          "__guid": "9ebf988d-c3b2-4841-a095-b7ebf5bc4ebb",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, -1, 2)",
@@ -116,11 +120,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "cb01cb31-18c2-4fd4-b6b3-3b457a1ea7c5",
+              "__guid": "9685bc8d-cefe-495a-b6ad-4cb4299206b3",
               "__enabled": true,
               "ChunkPosition": "-1,-1,2",
               "OnComponentDestroy": null,
@@ -133,10 +138,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "21780553-5072-45c5-8d0c-e268c1cf1344",
+              "__guid": "28616b0d-3d22-4005-b8fd-9c74ef9291fe",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -158,10 +164,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "e793755a-76c3-4904-b2ed-142de749a825",
+              "__guid": "766255d0-bb22-44a1-a24c-3d5984003b7a",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/glass.vmat",
               "Materials": null,
@@ -183,8 +190,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "990e8234-9433-4707-babb-93233bccbc95",
+              "__guid": "ab5d4224-8ddb-4d2e-9238-a9521aa937aa",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -207,7 +215,7 @@
           ],
           "Children": [
             {
-              "__guid": "80c4e6c5-0d8d-4a46-959d-9389fa7dff83",
+              "__guid": "fdd67ded-5827-487c-a58e-30f5f1dff368",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -301,12 +309,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -335,7 +343,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -344,14 +351,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "80c4e6c5-0d8d-4a46-959d-9389fa7dff83",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "8909898b-35b3-4ac3-a567-eedf6054fa85",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "91b3feb8-5e98-4228-920f-92874a4c30df",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "151112cb-83a8-49e0-84a4-704fdf894453"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "fdd67ded-5827-487c-a58e-30f5f1dff368",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "59106460-82c4-4369-8f69-1508574edeef",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "50bdb632-1f0c-4e01-886d-0d286b56e339",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "96e8f827-34eb-45dc-8ee5-407281a506d4"
               }
             },
             {
-              "__guid": "7b635c1e-ae7d-4275-9088-4df9d2bc9a46",
+              "__guid": "50de4f64-a772-4bdf-91e6-36a5f4b5b0e8",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -453,12 +460,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -487,7 +494,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -496,14 +502,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "7b635c1e-ae7d-4275-9088-4df9d2bc9a46",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "46b57d36-5f53-4c67-b489-27c64d203ce4",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "52bda8ae-f53f-40b7-a487-407d402369fa",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "1259f99e-d7d8-4cea-a007-4dfa6beb29db"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "50de4f64-a772-4bdf-91e6-36a5f4b5b0e8",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "a9284973-5a5e-4f2a-866e-9641d4de7c72",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "bfb06f93-f1b1-4bb0-8b39-a687d1046de4",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "6262bfca-8224-428c-8c59-d7376f5e5caa"
               }
             },
             {
-              "__guid": "0f33cb8c-cfcc-4291-99bc-7e70d2751374",
+              "__guid": "704242b9-d178-42c3-8769-d9fc0f64c083",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -605,12 +611,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -639,7 +645,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -648,16 +653,16 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "0f33cb8c-cfcc-4291-99bc-7e70d2751374",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "de264d0e-d603-4ed7-8170-f08f6c0a0798",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "834a2729-fb43-4e1e-b9a5-584d7402b96f",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "b8d334a8-ab08-4cbe-8e97-52f76233b346"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "704242b9-d178-42c3-8769-d9fc0f64c083",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "8bb7aca2-bf87-47d9-a8a9-d2abf54451f7",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "e1b239c1-f324-4112-b27b-29e91d12ae49",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "96a0df42-a053-405c-8bfa-5ea030d04bb6"
               }
             }
           ]
         },
         {
-          "__guid": "9bc18951-3294-4166-aa49-3fae784fad60",
+          "__guid": "83ad5117-a2a1-40ad-a316-1eb9577ab7c9",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, 0, 2)",
@@ -669,11 +674,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "698c4437-3445-4d3c-96c8-f1b6e8d55724",
+              "__guid": "9411c3f2-6973-4995-a11b-aff4d0e814bf",
               "__enabled": true,
               "ChunkPosition": "0,0,2",
               "OnComponentDestroy": null,
@@ -686,10 +692,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "c8233cc5-b882-41e9-aa40-d4da33ab5fb1",
+              "__guid": "2f63a36f-2bdf-4680-8659-f0fe46f950b9",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -711,10 +718,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "39fb6d02-a8e1-4a7b-8c07-77bd6b61e5a7",
+              "__guid": "5fb8f9e0-1f57-4754-9a95-e89bb6d6c0c4",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/glass.vmat",
               "Materials": null,
@@ -736,8 +744,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "5bd04cb1-51f2-4cc7-b1bd-5a708e9e09c5",
+              "__guid": "bc61cbf7-6165-4e60-818b-26f725ff0d32",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -760,7 +769,7 @@
           ],
           "Children": [
             {
-              "__guid": "0e4543d5-c1a2-41d5-ae99-4df79e61a225",
+              "__guid": "01572756-d8ec-4fb8-9abb-8c73643183fd",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -854,12 +863,12 @@
                         "511.9999,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -888,7 +897,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -897,14 +905,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "0e4543d5-c1a2-41d5-ae99-4df79e61a225",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "21bd9861-dac7-4033-be24-d6095ab63b56",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "0df644b2-8e91-4fb6-a9f5-324978b0f135",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "5720c7e1-2c2c-4894-b590-9424f60a4fe2"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "01572756-d8ec-4fb8-9abb-8c73643183fd",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "e0c1e43c-3484-40a1-996a-bb8d0848c2aa",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "16bd7f3f-bb12-4071-a403-cc6a8f83d2cd",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "c28ad111-4c43-4429-b6f6-bf6d895e6dcd"
               }
             },
             {
-              "__guid": "69d0f150-bc93-4a4d-ae93-f324432f7f33",
+              "__guid": "865a876d-8d48-47ee-a01b-ad3d10568906",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1006,12 +1014,12 @@
                         "511.9998,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1040,7 +1048,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -1049,14 +1056,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "69d0f150-bc93-4a4d-ae93-f324432f7f33",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "d4bee9d0-d906-4da0-a504-133ac8f2ac46",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "a5f125fa-094d-4109-80b9-1d0bca85f4a3",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "aeed50eb-436f-4f06-98e2-3bd39880b674"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "865a876d-8d48-47ee-a01b-ad3d10568906",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "9bdc0874-b109-4bcd-8449-a4fbe99aa8c2",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "c804e5f3-f7d9-4d9b-aa66-64a996420bf8",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "92fcc56c-16f2-469f-a52c-56c360a0dc1b"
               }
             },
             {
-              "__guid": "11756bdf-658f-46e8-95da-e39ad54e8b3b",
+              "__guid": "9f2da9b8-17a1-4018-bf10-74477922be90",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1158,12 +1165,12 @@
                         "511.9998,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1192,7 +1199,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -1201,16 +1207,16 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "11756bdf-658f-46e8-95da-e39ad54e8b3b",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "9dca3c26-6d38-46ee-b8eb-a48b0b0ac3cc",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "3e55b2fd-26ac-45c1-8104-e095786d6ae5",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "bda25219-76b2-4fa9-8885-dee519e19d10"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "9f2da9b8-17a1-4018-bf10-74477922be90",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "452b06f0-faea-4028-b581-bf57917fb0ec",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "5f5d0e46-9695-4f15-ad90-655466aebd5a",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "5830f432-2cb5-4354-a62d-d0b017526db1"
               }
             }
           ]
         },
         {
-          "__guid": "f93b35eb-9be4-4ea4-a7d6-3a14a12d0fb2",
+          "__guid": "a9b37f38-ad8a-4fb9-81e2-0c2a4ce49dfa",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (0, -1, 2)",
@@ -1222,11 +1228,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "aa61ad6d-ebd1-4e6a-b89b-9f51983bdeb2",
+              "__guid": "6f0ca357-ccdb-4dd8-a4a5-afbf1eca33da",
               "__enabled": true,
               "ChunkPosition": "0,-1,2",
               "OnComponentDestroy": null,
@@ -1239,10 +1246,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "b1e59cd5-ea2b-49cc-9123-000d26d33f04",
+              "__guid": "72be1981-2445-44ec-b742-7703c7a740fe",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -1264,10 +1272,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "964b6e22-66eb-47e5-ab43-e3726c56d18f",
+              "__guid": "1bd5a0e2-9be7-42fc-9e4a-232d11349b9b",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/glass.vmat",
               "Materials": null,
@@ -1289,8 +1298,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "8dc8f293-8387-4218-929c-555da00f93c7",
+              "__guid": "c7ab4fb7-3a5c-42e6-a696-72dca9c35ea8",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -1313,7 +1323,7 @@
           ],
           "Children": [
             {
-              "__guid": "f1a90803-b62d-453a-abf7-f1257c009096",
+              "__guid": "8ce1ef39-ea11-41d7-b83e-0217c2612887",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1407,12 +1417,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1441,7 +1451,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -1450,14 +1459,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "f1a90803-b62d-453a-abf7-f1257c009096",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "88f3a27c-a23e-412d-b167-3563ed6b07b0",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "2d53c1b1-b973-4ff7-81d2-0ab6314742b6",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "1f116dd8-b913-4971-a966-e6082916aa6a"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "8ce1ef39-ea11-41d7-b83e-0217c2612887",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "fd21a795-2b23-46cb-bf12-e5e2db30b0bc",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "94a82b9c-6134-45ae-9ff3-c2f9b83eaa19",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "082d1c83-463e-4168-89ef-c7df900f8ca3"
               }
             },
             {
-              "__guid": "874ab3cd-4200-4acb-85db-6ac241afa89a",
+              "__guid": "fa1d092c-a0c8-44fb-96da-c154b099e15e",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1559,12 +1568,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1593,7 +1602,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -1602,14 +1610,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "874ab3cd-4200-4acb-85db-6ac241afa89a",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "45794a91-8d19-4c11-add0-c20663df8b5f",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "67ca14a0-25eb-4d21-a354-28ce06fa79b7",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "8c785da2-0717-45d6-813e-c874d8b30f64"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "fa1d092c-a0c8-44fb-96da-c154b099e15e",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "a5af9c14-7460-4206-95dc-670a7614c8b0",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "d236d3a3-2f03-4801-a20d-b5f04a0787d9",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "5d63394f-cb35-4110-8165-de6b529cbb7c"
               }
             },
             {
-              "__guid": "d35853f8-126a-4f90-9b33-49304323e299",
+              "__guid": "f8f72a41-9390-47f2-92b0-fc6b9bea56d7",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1711,12 +1719,12 @@
                         "0.0002441406,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1745,7 +1753,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -1754,16 +1761,16 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "d35853f8-126a-4f90-9b33-49304323e299",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "b8a9e52b-6cab-4073-993d-bc965e9d19e7",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "8fbb6663-7dd8-4462-b8b0-707f2f903934",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "0ba11753-87e9-4e9e-aba6-4976a036b534"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "f8f72a41-9390-47f2-92b0-fc6b9bea56d7",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "5f3791b6-3169-424c-8133-100d9bce7313",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "1e3e8295-0c5b-4985-bb04-1fba5898a022",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "73ee9dfe-3def-439c-8faf-908d64ce3606"
               }
             }
           ]
         },
         {
-          "__guid": "9b4d14e9-5f0c-4eec-a9d7-db149d2243b6",
+          "__guid": "62eeee0f-59d2-449e-b588-e5d437f1921f",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-1, 0, 2)",
@@ -1775,11 +1782,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "604c6c96-212d-4d60-9569-f43dea30a1bd",
+              "__guid": "933d1d34-26eb-4fe2-91d4-1105a119dea3",
               "__enabled": true,
               "ChunkPosition": "-1,0,2",
               "OnComponentDestroy": null,
@@ -1792,10 +1800,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "bea1d229-56da-4226-95dc-efe3d515505c",
+              "__guid": "a85888ea-86f6-4ac4-a80d-e42f5b6e5aff",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -1817,10 +1826,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "0ca4618c-f50d-4d93-bc09-0ee03fe6c4e5",
+              "__guid": "238c78fe-e4d4-4902-9c53-fe6b0cc26d67",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/glass.vmat",
               "Materials": null,
@@ -1842,8 +1852,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "917db61f-abd0-4947-a943-c01a0bfdc13a",
+              "__guid": "5124f28f-2570-4288-9294-1b42c17680ae",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -1866,7 +1877,7 @@
           ],
           "Children": [
             {
-              "__guid": "2c31179b-7b54-4b25-8646-b01a83602bb5",
+              "__guid": "f659bbb7-8b92-4da9-b13f-655c6267d897",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -1960,12 +1971,12 @@
                         "511.9999,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -1994,7 +2005,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -2003,14 +2013,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "2c31179b-7b54-4b25-8646-b01a83602bb5",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "34c542ec-ba26-4490-81f5-991511b3c02e",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "b94a1c60-ad9f-4c09-8a46-3a6ffe8d0205",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "4c042946-b2b7-4107-8a13-3a7211d8a5a0"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "f659bbb7-8b92-4da9-b13f-655c6267d897",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "56041cc4-4e73-459e-ae1b-3f5ad99c3a53",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "d559a493-c8a1-4629-af01-23c2520b6a26",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "8828a476-b34f-4246-97b7-eccfca915db3"
               }
             },
             {
-              "__guid": "728b769d-36fd-4db6-ba9c-7fae59750422",
+              "__guid": "593b380b-26c3-4f3a-a897-dcf60c3a4803",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -2112,12 +2122,12 @@
                         "511.9998,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -2146,7 +2156,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -2155,14 +2164,14 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "728b769d-36fd-4db6-ba9c-7fae59750422",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "9c584bba-718e-48b1-bab8-108790d7effc",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "4d9f4e06-5a3d-4d86-a460-176c88fee8a8",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "a3215a8e-36d1-46ef-aaaa-d5fb02b14e8e"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "593b380b-26c3-4f3a-a897-dcf60c3a4803",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "348034a3-852c-408e-a143-ac63b6247a15",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "6d26e75c-19c2-4a3d-8ac2-9cf1c9d306e0",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "1196b1a7-6a69-4ead-a03c-7a4711ea4fe4"
               }
             },
             {
-              "__guid": "fc880236-41a7-4476-aae8-ed8046ada9ae",
+              "__guid": "7e6c6a08-f959-48ca-9799-a0dd2f1d41ed",
               "__version": 1,
               "__Prefab": "items/wood/oak/oak_slab.prefab",
               "__PrefabInstancePatch": {
@@ -2264,12 +2273,12 @@
                         "511.9998,511.998"
                       ],
                       "MaterialIndex": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "EdgeFlags": [
                         0,
@@ -2298,7 +2307,6 @@
                         0
                       ],
                       "Materials": [
-                        "materials/dev/reflectivity_30.vmat",
                         "items/wood/oak/oak_slab.vmat"
                       ]
                     }
@@ -2307,16 +2315,16 @@
                 "MovedObjects": []
               },
               "__PrefabIdToInstanceId": {
-                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "fc880236-41a7-4476-aae8-ed8046ada9ae",
-                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "b53cdf68-cade-44bf-adbf-e2841bb276e0",
-                "9268070c-e24d-4e11-8620-5b5d99313351": "d6f97ffb-23a7-4e6c-84ab-aa2bcb6b1653",
-                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "c6736ae2-a4a6-480a-9730-5f62296cde10"
+                "b0f72748-b7fb-401e-8a0e-a55cc8ae27ed": "7e6c6a08-f959-48ca-9799-a0dd2f1d41ed",
+                "64644fe7-ab08-42b4-a0c3-140f22fb35b8": "aa8a01d3-1c3c-410f-8cd8-580abfb170b4",
+                "9268070c-e24d-4e11-8620-5b5d99313351": "5fc06d7b-2399-4e79-a1ac-08c3704299c5",
+                "8cfc94a1-b7bb-4000-a191-a1c1b197edc8": "91e40e01-190d-49ad-a240-3e785df35970"
               }
             }
           ]
         },
         {
-          "__guid": "13b65883-08f5-451a-b14c-f4b1fce8187f",
+          "__guid": "3fe2a849-654e-4488-8334-6f9ee38328e3",
           "__version": 1,
           "Flags": 0,
           "Name": "Chunk (-3, -26, 0)",
@@ -2328,11 +2336,12 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "ChunkObject",
-              "__guid": "678f4a1d-65fb-412f-89b0-cdb117f070f7",
+              "__guid": "edb7bf7c-d98b-4ee5-a30c-a334d3704599",
               "__enabled": true,
               "ChunkPosition": "-3,-26,0",
               "OnComponentDestroy": null,
@@ -2345,10 +2354,11 @@
             },
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "7503ae71-bff2-463c-990c-c27124a2d6cf",
+              "__guid": "423eb7fe-5efe-4627-8e9a-0d445dd096f9",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
+              "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": "materials/textureatlas.vmat",
               "Materials": null,
@@ -2370,8 +2380,9 @@
             },
             {
               "__type": "Sandbox.ModelCollider",
-              "__guid": "e42466b8-56e5-4526-829b-6e38c4e0932c",
+              "__guid": "1d4835c9-b4bd-42b7-95a7-bf1497812f4c",
               "__enabled": true,
+              "ColliderFlags": 0,
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -2409,6 +2420,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -2417,6 +2429,7 @@
           "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 60,
           "FovAxis": "Horizontal",
           "IsMainCamera": true,
@@ -2428,9 +2441,11 @@
           "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "spectator",
           "RenderTags": "",
+          "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
@@ -2441,6 +2456,7 @@
           "__guid": "5280e434-91ce-485c-8e73-830edf306fb8",
           "__enabled": true,
           "__version": 1,
+          "Filter": "Bilinear",
           "Gamma": 2.2,
           "Mode": "Additive",
           "OnComponentDestroy": null,
@@ -2482,7 +2498,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Scale": 0.2
+          "Scale": 0.2,
+          "TexelSize": 1
         }
       ],
       "Children": []
@@ -2592,6 +2609,7 @@
       "NetworkMode": 1,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 1,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -2654,7 +2672,7 @@
           }
         },
         {
-          "__type": "GamemodeHud",
+          "__type": "VoxelParty.UI.GamemodeHud",
           "__guid": "3bd50120-e3ad-40b9-bc49-fb6e46104fc2",
           "__enabled": true,
           "OnComponentDestroy": null,
@@ -2679,6 +2697,7 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [],
           "Children": []
@@ -2696,6 +2715,7 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [],
           "Children": []
@@ -2713,6 +2733,7 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [],
           "Children": []
@@ -2730,6 +2751,7 @@
           "NetworkMode": 2,
           "NetworkInterpolation": true,
           "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
           "OwnerTransfer": 1,
           "Components": [],
           "Children": []
@@ -2749,6 +2771,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -2779,6 +2802,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -2846,6 +2870,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -2892,6 +2917,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {

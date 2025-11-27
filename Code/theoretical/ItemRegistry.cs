@@ -1,27 +1,32 @@
+using System;
+
 public static class ItemRegistry
 {
 
 	public static bool FinishedLoading = false;
-
-	public static Dictionary<int, Item> CachedRegistry = new();
+	public static Dictionary<string, Item> CachedIdentifierRegistry = new();
 	public static void UpdateRegistry()
 	{
-		var newRegistry = new Dictionary<int, Item>();
+		var newIdentifierRegistry = new Dictionary<string, Item>();
 		foreach ( var item in ResourceLibrary.GetAll<Item>() )
 		{
-			if ( newRegistry.ContainsKey( item.ID ) )
-				Log.Warning( $"Duplicate registry entry: {item.ID} = {item.ResourcePath} vs {newRegistry[item.ID].ResourcePath}" );
-			else
-				newRegistry[item.ID] = item;
+			if (string.IsNullOrWhiteSpace(item.Identifier))
+			{
+				Log.Warning($"Item {item.ResourcePath} does not have a valid Identifier. Please set a unique identifier for this item.");
+            }
+            else
+            {
+				if ( newIdentifierRegistry.ContainsKey( item.Identifier ) )
+                {
+					Log.Warning( $"Duplicate identifier registry entry: {item.Identifier} = {item.ResourcePath} vs {newIdentifierRegistry[item.Identifier].ResourcePath}" );
+                }
+                else
+                {
+					newIdentifierRegistry[item.Identifier] = item;
+                }
+            }
 		}
-		CachedRegistry = newRegistry;
-	}
-
-	public static Item GetItem( int ID )
-	{
-		if ( CachedRegistry.TryGetValue( ID, out Item i ) )
-			return i;
-		return null;
+		CachedIdentifierRegistry = newIdentifierRegistry;
 	}
 
 	public static Item GetItem( string name )
@@ -32,26 +37,38 @@ public static class ItemRegistry
 		return null;
 	}
 
+	public static Item GetItemByIdentifier( string identifier )
+	{
+		if ( string.IsNullOrWhiteSpace( identifier ) )
+			identifier = "voxelparty:air";
+		if ( CachedIdentifierRegistry.TryGetValue( identifier, out Item i ) )
+			return i;
+		return null;
+	}
+
 	public static Item GetItem( Vector3Int position )
 	{
-		var item = GetItem( World.Active.GetBlock( position ).BlockID );
+		var item = GetItemByIdentifier( World.Active.GetBlock( position ).BlockID );
 		if ( item is not null && item.IsValid() )
 			return item;
 		return null;
 	}
-
-	public static Block GetBlock( int itemID )
-	{
-		if ( CachedRegistry.TryGetValue( itemID, out Item i ) )
-			return i.Block;
-		return null;
-	}
-
+	
 	public static Block GetBlock( string name )
 	{
 		var item = ResourceLibrary.GetAll<Item>().FirstOrDefault( x => x.Name.Equals( name, System.StringComparison.CurrentCultureIgnoreCase ) );
 		if ( item != null && item.IsValid() )
 			return item.Block;
+		return null;
+	}
+
+	public static Block GetBlockByIdentifier( string identifier )
+	{
+		if ( string.IsNullOrWhiteSpace( identifier ) )
+			identifier = "voxelparty:air";
+		if ( CachedIdentifierRegistry.TryGetValue( identifier, out Item i ) )
+			return i.Block;
+		Log.Warning( $"Block with identifier {identifier} not found in registry." );
 		return null;
 	}
 }

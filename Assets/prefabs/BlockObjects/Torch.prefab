@@ -12,6 +12,7 @@
     "NetworkMode": 2,
     "NetworkInterpolation": true,
     "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
     "OwnerTransfer": 1,
     "Components": [
       {
@@ -40,6 +41,7 @@
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
@@ -48,8 +50,10 @@
             "__enabled": true,
             "BodyGroups": 18446744073709551615,
             "CreateAttachments": false,
+            "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": null,
+            "Materials": null,
             "Model": "models/torch.vmdl",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -81,6 +85,7 @@
             "NetworkMode": 2,
             "NetworkInterpolation": true,
             "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
             "OwnerTransfer": 1,
             "Components": [
               {
@@ -116,13 +121,14 @@
             "NetworkMode": 2,
             "NetworkInterpolation": true,
             "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
             "OwnerTransfer": 1,
             "Components": [
               {
                 "__type": "Sandbox.ParticleEffect",
                 "__guid": "b93898d9-6dd2-4ea9-9e77-cb53155c2002",
                 "__enabled": true,
-                "__version": 1,
+                "__version": 3,
                 "Alpha": 1,
                 "ApplyAlpha": false,
                 "ApplyColor": false,
@@ -138,6 +144,11 @@
                 "CollisionPrefabChance": 1,
                 "CollisionPrefabRotation": 0,
                 "CollisionRadius": 1,
+                "ConstantMovement": {
+                  "X": 0,
+                  "Y": 0,
+                  "Z": 0
+                },
                 "Damping": 0,
                 "DieOnCollisionChance": 0,
                 "FollowerPrefab": null,
@@ -174,7 +185,13 @@
                   "ConstantA": "1,1,1,1",
                   "ConstantB": "1,1,1,1"
                 },
+                "InitialVelocity": {
+                  "X": 0,
+                  "Y": 0,
+                  "Z": 0
+                },
                 "Lifetime": 2,
+                "LocalSpace": 0,
                 "MaxParticles": 1000,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -232,36 +249,16 @@
                       "out": 0,
                       "mode": "Mirrored"
                     }
-                  ],
-                  "Constants": "1,0,0,0"
+                  ]
                 },
                 "SequenceId": 0,
-                "SequenceSpeed": 0.5,
+                "SequenceSpeed": 0.25,
                 "SequenceTime": 1,
                 "SheetSequence": true,
-                "Space": "World",
                 "StartDelay": 0,
                 "StartVelocity": {
                   "Type": "Range",
                   "Evaluation": "Frame",
-                  "CurveA": [
-                    {
-                      "x": 0.5,
-                      "y": 0.5,
-                      "in": 0,
-                      "out": 0,
-                      "mode": "Mirrored"
-                    }
-                  ],
-                  "CurveB": [
-                    {
-                      "x": 0.5,
-                      "y": 0.5,
-                      "in": 0,
-                      "out": 0,
-                      "mode": "Mirrored"
-                    }
-                  ],
                   "Constants": "0,2,0,0"
                 },
                 "Stretch": 0,
@@ -295,13 +292,12 @@
               {
                 "__type": "PointParticleSpriteRenderer",
                 "__guid": "d016755f-0592-40b6-bc3b-22898a10153b",
-                "__enabled": true,
+                "__enabled": false,
                 "Alignment": "LookAtCamera",
                 "BlurAmount": 0.5,
                 "BlurOpacity": 0.5,
                 "BlurSpacing": 0.5,
                 "CastShadows": false,
-                "ColorTint": "1,1,1,1",
                 "FaceVelocity": false,
                 "FramesInSheet": 2,
                 "LeadingTrail": true,
@@ -315,6 +311,12 @@
                 "Opaque": false,
                 "Pivot": "0.5,0.5",
                 "ReceiveShadows": false,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RotationOffset": 0,
                 "Scale": 1,
                 "SortMode": "Unsorted",
@@ -330,13 +332,22 @@
                     "Rotate": 0,
                     "FlipVertical": false,
                     "FlipHorizontal": false,
-                    "Padding": {
-                      "Size": "0,0",
-                      "EdgeSize": "0,0"
+                    "Cropping": {
+                      "Left": 0,
+                      "Top": 0,
+                      "Right": 0,
+                      "Bottom": 0
                     },
-                    "Sharpen": 0,
+                    "Padding": {
+                      "Left": 0,
+                      "Top": 0,
+                      "Right": 0,
+                      "Bottom": 0
+                    },
                     "InvertColor": false,
+                    "Tint": "1,1,1,1",
                     "Blur": 0,
+                    "Sharpen": 0,
                     "Brightness": 1,
                     "Contrast": 1,
                     "Saturation": 1,
@@ -347,6 +358,44 @@
                   },
                   "compiled": null
                 }
+              },
+              {
+                "__type": "Sandbox.ParticleSpriteRenderer",
+                "__guid": "4faf95cd-f668-4ae3-8bd3-ca0b08759dc2",
+                "__enabled": true,
+                "__version": 2,
+                "Additive": false,
+                "Alignment": "LookAtCamera",
+                "BlurAmount": 0.5,
+                "BlurOpacity": 0.5,
+                "BlurSpacing": 0.5,
+                "DepthFeather": 0,
+                "FaceVelocity": false,
+                "FogStrength": 1,
+                "LeadingTrail": true,
+                "Lighting": false,
+                "MotionBlur": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Opaque": false,
+                "PlaybackSpeed": 1,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RotationOffset": 0,
+                "Scale": 1,
+                "Shadows": false,
+                "SortMode": "Unsorted",
+                "Sprite": "materials/particle/torch.sprite",
+                "StartingAnimationName": "Default",
+                "TextureFilter": "Point"
               }
             ],
             "Children": []

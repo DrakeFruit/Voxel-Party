@@ -8,9 +8,10 @@ public partial class StructureLoader : Component, Component.ExecuteInEditor
 	[Property, Alias( "Structure" )] public Structure LoadedStructure { get; set; }
 	public BlockData BlockData { get; set; }
 
-	public Vector3Int StructureSize => LoadedStructure?.StructureData != null
-		? World.Active.GetStructureBounds( LoadedStructure.StructureData )
+	public Vector3Int StructureSize => LoadedStructure?.StructureDataByID != null
+		? World.Active.GetStructureBounds( LoadedStructure.StructureDataByID )
 		: Vector3Int.Zero;
+
 
 	[Button]
 	public (BlockData[,,] data, Vector3Int pos) StampStructure()
@@ -32,8 +33,8 @@ public partial class StructureLoader : Component, Component.ExecuteInEditor
 			return (null, Vector3Int.Zero);
 		}
 		var worldPosition = Helpers.WorldToVoxel( WorldPosition );
-		var oldBlocks = BlockData.GetAreaInBox( worldPosition, World.Active.GetStructureBounds( LoadedStructure.StructureData ) );
-		World.Active.LoadStructure( worldPosition, LoadedStructure.StructureData );
+		var oldBlocks = BlockData.GetAreaInBox( worldPosition, World.Active.GetStructureBounds( LoadedStructure.StructureDataByID ) );
+		World.Active.LoadStructureByID( worldPosition, LoadedStructure.StructureDataByID );
 		GameObject.Destroy();
 		return (oldBlocks, worldPosition);
 	}
@@ -65,7 +66,7 @@ public partial class StructureLoader : Component, Component.ExecuteInEditor
 		{
 			if ( !Networking.IsHost )
 				return; // Let the host handle this part.
-			World.Active.LoadStructure( Helpers.WorldToVoxel( WorldPosition ), LoadedStructure.StructureData );
+			World.Active.LoadStructureByID( Helpers.WorldToVoxel( WorldPosition ), LoadedStructure.StructureDataByID );
 			GameObject.Destroy();
 			return;
 		}
@@ -78,9 +79,9 @@ public partial class StructureLoader : Component, Component.ExecuteInEditor
 		try
 		{
 			World.Active = tempThinker.World;
-			World.Active.LoadStructure( Vector3Int.Zero, LoadedStructure.StructureData );
+			World.Active.LoadStructureByID( Vector3Int.Zero, LoadedStructure.StructureDataByID );
 			// Force load all chunks in the radius around the structure
-			var bounds = World.Active.GetStructureBounds( LoadedStructure.StructureData );
+			var bounds = World.Active.GetStructureBounds( LoadedStructure.StructureDataByID );
 			var chunkMax = (bounds / 16f).Ceil();
 			for ( int z = 0; z <= chunkMax.z; z++ )
 			{

@@ -6,8 +6,8 @@ public class SimpleParticle : Component
     [Sync] public Material Material { get; set; }
 
     [Sync] public Rect TextureRect { get; set; } = new Rect( 0, 0, 1, 1 ); // TextureRect defines the portion of the texture to use for this particle.
-    [Sync] public int ItemID { get; set; } = 0; // ItemID is used to identify which block this particle represents, if applicable.
-    public int TextureID => ItemRegistry.GetBlock( ItemID ).TextureIndex;
+    [Sync] public string ItemID { get; set; } = "voxelparty:air"; // ItemID is used to identify which block this particle represents, if applicable.
+    public int TextureID => ItemRegistry.GetBlockByIdentifier( ItemID )?.TextureIndex??0;
 
     [Sync] public Vector3 Velocity { get; set; } = Vector3.Zero; // Velocity is the speed and direction of the particle's movement.
     [Sync] public Vector3 Acceleration { get; set; } = Vector3.Zero; // Acceleration is the change in velocity over time, affecting the particle's movement.

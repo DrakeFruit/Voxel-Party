@@ -1,11 +1,14 @@
 {
   "ID": 13,
+  "Identifier": "voxelparty:torch",
   "Name": "Torch",
   "MaxStackSize": 64,
+  "InPallete": true,
   "IsBlock": true,
   "Block": {
     "IsSolid": true,
     "Hardness": 1,
+    "StructureSoft": false,
     "IsFullBlock": false,
     "BlockBoundsMins": "6,6,0",
     "BlockBoundsMaxs": "10,10,9",
@@ -45,13 +48,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -60,7 +72,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/599109c51332ba9f.vtex"
+      "compiled": null
     },
     "TopTexture": null,
     "SideTexture": null,

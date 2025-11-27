@@ -1,17 +1,31 @@
 {
-  "ID": 6,
+  "Identifier": "voxelparty:glass",
   "Name": "Glass",
   "MaxStackSize": 64,
+  "InPallete": true,
   "IsBlock": true,
   "Block": {
     "IsSolid": true,
     "Hardness": 1,
+    "StructureSoft": false,
     "IsFullBlock": true,
     "BlockBoundsMins": "0,0,0",
     "BlockBoundsMaxs": "16,16,16",
     "Replaceable": false,
     "Rotateable": false,
     "RotateTextures": true,
+    "_validDirections": [
+      "North",
+      "South",
+      "East",
+      "West",
+      "Up",
+      "Down"
+    ],
+    "DefaultDirection": "None",
+    "CameraDirectionPlaced": false,
+    "FlipPlacedDirection": false,
+    "ValidPlacementOption": "StableAnywhere",
     "BreakParticle": "prefabs/break particles.prefab",
     "Material": "materials/glass.vmat",
     "WalkStepSound": "sounds/footsteps/glass/glass_step.sound",
@@ -33,13 +47,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -67,9 +90,9 @@
     "BottomTextureIndex": null,
     "Drops": [
       {
-        "Item": "items/air.item",
+        "Item": null,
         "Count": 1,
-        "ItemID": 0
+        "ItemID": "voxelparty:air"
       }
     ],
     "BlockObject": null

@@ -15,7 +15,7 @@ public class DeleteBlockTool : VoxelTool
     {
         var lastBlockData = World.Active.GetBlock( blockPosition );
         SceneEditorSession.Active.AddUndo( "Delete Block", () => World.Active.SetBlock( blockPosition, lastBlockData ),
-            () => World.Active.SetBlock( blockPosition, new BlockData( 0 ) ) );
-        World.Active.SetBlock( blockPosition, new BlockData( 0 ) );
+            () => World.Active.SetBlock( blockPosition, new BlockData( "voxelparty:air" ) ) );
+        World.Active.SetBlock( blockPosition, new BlockData( "voxelparty:air" ) );
     }
 }

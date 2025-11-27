@@ -1,20 +1,21 @@
 // Defines a stack of items as well as their data
 using System;
+using System.IO;
 using Sandbox;
 
 public class ItemStack
 {
-    public static readonly ItemStack Empty = new ItemStack { ItemID = 0, Count = 0 };
+    public static readonly ItemStack Empty = new ItemStack { ItemID = "voxelparty:air", Count = 0 };
 
     public Item Item { get; set; } // The ID of the item in the stack, e.g. 0x01 for Stone.
     public int Count { get; set; } // The number of items in the stack
 
     [Hide]
-    public int ItemID
+    public string ItemID
     {
         get
         {
-            return Item?.ID ?? 0; // Return the item ID if the item is not null, otherwise return 0
+            return Item?.Identifier ?? "voxelparty:air"; // Return the item ID if the item is not null, otherwise return 0
         }
         set
         {
@@ -24,38 +25,33 @@ public class ItemStack
 
     public IEnumerable<byte> Serialize()
     {
-        var serialized = new List<byte>();
-        serialized.AddRange( BitConverter.GetBytes( ItemID ) ); // Serialize the item ID
+        var serialized = new List<byte>
+		{
+			(byte)ItemID.Length
+		};
+        serialized.AddRange( System.Text.Encoding.UTF8.GetBytes( ItemID ) ); // Serialize the item ID
         serialized.AddRange( BitConverter.GetBytes( Count ) ); // Serialize the count
         return serialized; // Return the serialized data as a byte array
     }
 
     public static ItemStack Deserialize( IEnumerable<byte> data, out int size )
     {
-        var dataList = data.ToList(); // Convert the IEnumerable to a List for easier access
-        if ( dataList.Count < 8 )
+        var binReader = new BinaryReader( new MemoryStream( data.ToArray() ) );
+        byte idLength = binReader.ReadByte(); // Read the length of the item ID
+        var idBytes = binReader.ReadBytes( idLength ); // Read the item ID bytes
+        string itemID = System.Text.Encoding.UTF8.GetString( idBytes ); // Convert the item ID bytes to a string
+        int count = binReader.ReadInt32(); // Read the count
+        size = 1 + idLength + 4; // Calculate the total size of the serialized data
+        return new ItemStack
         {
-            Log.Warning( "ItemStack.Deserialize: Not enough data to deserialize ItemStack." );
-            size = 0; // Set size to 0 if there is not enough data
-            return Empty; // Return an empty stack if there is not enough data
-        }
-
-        int itemID = BitConverter.ToInt32( dataList.Take( 4 ).ToArray(), 0 ); // Deserialize the item ID
-        int count = BitConverter.ToInt32( dataList.Skip( 4 ).Take( 4 ).ToArray(), 0 ); // Deserialize the count
-        size = 8; // Set the size to the number of bytes read (4 for item ID + 4 for count)
-        var item = ItemRegistry.GetItem( itemID ); // Get the item from the registry using the deserialized ID
-        if ( item == null )
-        {
-            Log.Warning( $"ItemStack.Deserialize: Item with ID {itemID} not found in registry." );
-            return Empty; // Return an empty stack if the item is not found
-        }
-        // This might change in future if we add more properties to ItemStack, or if ItemStack has variable size data.
-        return new ItemStack( item, count ); // Return a new ItemStack with the deserialized data
+            ItemID = itemID, // Set the item ID
+            Count = count // Set the count
+        };
     }
 
     public static bool IsNullOrEmpty( ItemStack stack )
     {
-        return stack == null || stack.ItemID == 0 || stack.Count == 0;
+        return stack == null || stack.ItemID == "voxelparty:air" || string.IsNullOrWhiteSpace( stack.ItemID ) || stack.Count == 0;
     }
 
     // Spawn an instance of this item in the world at the specified position
@@ -71,7 +67,7 @@ public class ItemStack
 
     public ItemStack()
     {
-        ItemID = 0; // Default item ID
+        ItemID = "voxelparty:air"; // Default item ID
         Count = 0; // Default count
     }
 

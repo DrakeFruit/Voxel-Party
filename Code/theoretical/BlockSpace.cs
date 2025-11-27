@@ -328,7 +328,7 @@ public class BlockSpace
 			obj.NetworkSpawn();*/
 	}
 
-	public string SerializeRegion( Vector3Int start, Vector3Int end )
+	public string SerializeRegionByID( Vector3Int start, Vector3Int end )
 	{
 		int xMin = Math.Min( start.x, end.x );
 		int xMax = Math.Max( start.x, end.x );
@@ -336,13 +336,38 @@ public class BlockSpace
 		int yMax = Math.Max( start.y, end.y );
 		int zMin = Math.Min( start.z, end.z );
 		int zMax = Math.Max( start.z, end.z );
-
-
+		Dictionary<(string id, byte data), ushort> uniqueBlockMap = new();
+		for ( int z = zMin; z <= zMax; z++ )
+		{
+			for ( int y = yMin; y <= yMax; y++ )
+			{
+				for ( int x = xMin; x <= xMax; x++ )
+				{
+					var blockData = GetBlock( new Vector3Int( x, y, z ) );
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					var key = (blockID, blockData.BlockDataValue);
+					if ( !uniqueBlockMap.ContainsKey( key ) )
+					{
+						uniqueBlockMap[key] = (ushort)uniqueBlockMap.Count;
+					}
+				}
+			}
+		}
 		List<byte> data = new();
 		// Add the size of the region to the data.
 		data.AddRange( BitConverter.GetBytes( xMax - xMin + 1 ) );
 		data.AddRange( BitConverter.GetBytes( yMax - yMin + 1 ) );
 		data.AddRange( BitConverter.GetBytes( zMax - zMin + 1 ) );
+		// Add the size of the dictionary to the data.
+		ushort uniqueCount = (ushort)uniqueBlockMap.Count;
+		data.AddRange( BitConverter.GetBytes( uniqueCount ) );
+		// Add each unique block's identifier and data value.
+		foreach ( var (key, index) in uniqueBlockMap )
+		{
+			data.Add( (byte)key.id.Length );
+			data.AddRange( System.Text.Encoding.UTF8.GetBytes( key.id ) );
+			data.Add( key.data );
+		}
 		List<byte> blocks = new();
 		for ( int z = zMin; z <= zMax; z++ )
 		{
@@ -351,13 +376,70 @@ public class BlockSpace
 				for ( int x = xMin; x <= xMax; x++ )
 				{
 					var blockData = GetBlock( new Vector3Int( x, y, z ) );
-					blocks.Add( blockData.BlockID );
-					blocks.Add( blockData.BlockDataValue );
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					var key = (blockID, blockData.BlockDataValue);
+					ushort index = uniqueBlockMap[key];
+					blocks.Add( (byte)index );
 				}
 			}
 		}
-		data.AddRange( blocks.RunLengthEncodeBy( 2 ) );
+		data.AddRange( blocks.RunLengthEncodeBy( 1 ) );
 		return Convert.ToBase64String( data.ToArray() );
+	}
+
+	public string SerializeBlockData(BlockData[,,] data )
+    {
+		var bytes = new List<byte>();
+		int xSize = data.GetLength( 0 );
+		int ySize = data.GetLength( 1 );
+		int zSize = data.GetLength( 2 );
+		bytes.AddRange( BitConverter.GetBytes( xSize ) );
+		bytes.AddRange( BitConverter.GetBytes( ySize ) );
+		bytes.AddRange( BitConverter.GetBytes( zSize ) );
+		ushort uniqueCount = 0;
+		Dictionary<(string id, byte data), ushort> uniqueBlockMap = new();
+		for ( int z = 0; z < zSize; z++ )
+        {
+			for ( int y = 0; y < ySize; y++ )
+            {
+				for ( int x = 0; x < xSize; x++ )
+                {
+					var blockData = data[x, y, z];
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					var key = (blockID, blockData.BlockDataValue);
+					if ( !uniqueBlockMap.ContainsKey( key ) )
+					{
+						uniqueBlockMap[key] = uniqueCount++;
+					}
+                }
+			}
+		}
+		// Add the size of the dictionary to the data.
+		bytes.AddRange( BitConverter.GetBytes( uniqueCount ) );
+		// Add each unique block's identifier and data value.
+		foreach ( var (key, index) in uniqueBlockMap )
+		{
+			bytes.Add( (byte)key.id.Length );
+			bytes.AddRange( System.Text.Encoding.UTF8.GetBytes( key.id ) );
+			bytes.Add( key.data );
+		}
+		List<byte> blocks = new();
+		for ( int z = 0; z < zSize; z++ )
+        {
+            for ( int y = 0; y < ySize; y++ )
+            {
+                for ( int x = 0; x < xSize; x++ )
+                {
+					var blockData = data[x, y, z];
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					var key = (blockID, blockData.BlockDataValue);
+					ushort index = uniqueBlockMap[key];
+					blocks.Add( (byte)index );
+                }
+			}
+		}
+		bytes.AddRange( blocks.RunLengthEncodeBy( 1 ) );
+		return Convert.ToBase64String( bytes.ToArray() );
 	}
 
 	public Vector3Int GetStructureBounds( string structureData )
@@ -374,33 +456,41 @@ public class BlockSpace
 		return new Vector3Int( xSize, ySize, zSize );
 	}
 
-	public BlockData[,,] GetStructureData( string structureData )
-	{
-		var bytes = Convert.FromBase64String( structureData );
+	public BlockData[,,] GetStructureDataByID( string structureData )
+    {
+        var bytes = Convert.FromBase64String( structureData );
 		if ( bytes.Length < 12 )
 		{
 			return null;
 		}
-		int xSize = BitConverter.ToInt32( bytes, 0 );
-		int ySize = BitConverter.ToInt32( bytes, 4 );
-		int zSize = BitConverter.ToInt32( bytes, 8 );
-		var blockData = bytes.Skip( 12 ).RunLengthDecodeBy( 2 ).ToList();
-		if ( blockData.Count != xSize * ySize * zSize * 2 )
+		var binReader = new System.IO.BinaryReader( new System.IO.MemoryStream( bytes ) );
+		int xSize = binReader.ReadInt32();
+		int ySize = binReader.ReadInt32();
+		int zSize = binReader.ReadInt32();
+		ushort uniqueCount = binReader.ReadUInt16();
+		Dictionary<ushort, (string id, byte data)> uniqueBlockMap = new();
+		for ( ushort i = 0; i < uniqueCount; i++ )
+        {
+			byte idLength = binReader.ReadByte();
+			string id = System.Text.Encoding.UTF8.GetString( binReader.ReadBytes( idLength ) );
+			byte data = binReader.ReadByte();
+			uniqueBlockMap[i] = (id, data);
+        }
+		var blockData = binReader.ReadBytes( (int)(binReader.BaseStream.Length - binReader.BaseStream.Position) ).RunLengthDecodeBy( 1 ).ToList();
+		if ( blockData.Count != xSize * ySize * zSize )
 		{
 			return null;
 		}
-
 		BlockData[,,] structure = new BlockData[xSize, ySize, zSize];
-
 		for ( int z = 0; z < zSize; z++ )
 		{
 			for ( int y = 0; y < ySize; y++ )
 			{
 				for ( int x = 0; x < xSize; x++ )
 				{
-					int index = (z * ySize * xSize + y * xSize + x) * 2;
-					byte blockID = blockData[index];
-					byte blockDataValue = blockData[index + 1];
+					int index = (z * ySize * xSize + y * xSize + x);
+					ushort blockIndex = blockData[index];
+					var (blockID, blockDataValue) = uniqueBlockMap[blockIndex];
 					structure[x, y, z] = new BlockData( blockID, blockDataValue );
 				}
 			}
@@ -408,7 +498,7 @@ public class BlockSpace
 		return structure;
 	}
 
-	public BlockData[,,] LoadStructure( Vector3Int location, string structureData )
+	public BlockData[,,] LoadStructureByID( Vector3Int location, string structureData )
 	{
 		var bytes = Convert.FromBase64String( structureData );
 		if ( bytes.Length < 12 )
@@ -416,13 +506,23 @@ public class BlockSpace
 			Log.Error( "Invalid structure data." );
 			return null;
 		}
-		int xSize = BitConverter.ToInt32( bytes, 0 );
-		int ySize = BitConverter.ToInt32( bytes, 4 );
-		int zSize = BitConverter.ToInt32( bytes, 8 );
-		var blockData = bytes.Skip( 12 ).RunLengthDecodeBy( 2 ).ToList();
-		if ( blockData.Count != xSize * ySize * zSize * 2 )
+		var binReader = new System.IO.BinaryReader( new System.IO.MemoryStream( bytes ) );
+		int xSize = binReader.ReadInt32();
+		int ySize = binReader.ReadInt32();
+		int zSize = binReader.ReadInt32();
+		ushort uniqueCount = binReader.ReadUInt16();
+		Dictionary<ushort, (string id, byte data)> uniqueBlockMap = new();
+		for ( ushort i = 0; i < uniqueCount; i++ )
 		{
-			Log.Error( $"Invalid structure data length: {blockData.Count}. Expected {xSize * ySize * zSize * 2}." );
+			byte idLength = binReader.ReadByte();
+			string id = System.Text.Encoding.UTF8.GetString( binReader.ReadBytes( idLength ) );
+			byte data = binReader.ReadByte();
+			uniqueBlockMap[i] = (id, data);
+		}
+		var blockData = binReader.ReadBytes( (int)(binReader.BaseStream.Length - binReader.BaseStream.Position) ).RunLengthDecodeBy( 1 ).ToList();
+		if ( blockData.Count != xSize * ySize * zSize )
+		{
+			Log.Error( $"Invalid structure data length: {blockData.Count}. Expected {xSize * ySize * zSize}." );
 			return null;
 		}
 
@@ -432,10 +532,10 @@ public class BlockSpace
 			{
 				for ( int x = 0; x < xSize; x++ )
 				{
-					int index = (z * ySize * xSize + y * xSize + x) * 2;
-					byte blockID = blockData[index];
-					byte blockDataValue = blockData[index + 1];
-					if ( ItemRegistry.GetBlock( blockData[index] ).StructureSoft )
+					int index = (z * ySize * xSize + y * xSize + x);
+					ushort blockIndex = blockData[index];
+					var (blockID, blockDataValue) = uniqueBlockMap[blockIndex];
+					if ( ItemRegistry.GetBlockByIdentifier( blockID )?.StructureSoft ?? true )
 					{
 						if ( !GetBlock( location + new Vector3Int( x, y, z ) ).GetBlock().Replaceable )
 							continue;
@@ -448,24 +548,24 @@ public class BlockSpace
 		return BlockData.GetAreaInBox( location, new Vector3Int( xSize, ySize, zSize ) );
 	}
 
-	public IEnumerable<byte> Serialize()
-	{
+	public IEnumerable<byte> SerializeByID()
+    {
 		var data = new List<byte>();
 		foreach ( var chunk in SimulatedChunks.Values )
-		{
+        {
 			if ( chunk.IsEmpty )
 				continue;
 			data.AddRange( BitConverter.GetBytes( chunk.Position.x ) );
 			data.AddRange( BitConverter.GetBytes( chunk.Position.y ) );
 			data.AddRange( BitConverter.GetBytes( chunk.Position.z ) );
-			var chunkData = chunk.Serialize().ToList();
+			var chunkData = chunk.SerializeByID().ToList();
 			data.AddRange( BitConverter.GetBytes( chunkData.Count ) );
 			data.AddRange( chunkData );
 		}
 		return data;
 	}
-
-	public void Deserialize( IEnumerable<byte> data )
+	
+	public void DeserializeByID( IEnumerable<byte> data )
 	{
 		var dataList = data.ToList();
 		int index = 0;
@@ -486,7 +586,7 @@ public class BlockSpace
 			index += chunkDataLength;
 
 			var chunk = new Chunk( this, chunkPosition );
-			chunk.Deserialize( chunkData );
+			chunk.DeserializeByID( chunkData );
 			SimulatedChunks[chunkPosition] = chunk;
 		}
 	}

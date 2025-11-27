@@ -23,11 +23,11 @@ public partial class VoxelBuilder : EditorTool
 	}
 
 	const float MAX_DISTANCE = 8096;
-	static public int SelectedItemID { get; private set; } = 0; // Default to Grass block
+	static public string SelectedItemID { get; private set; } = "voxelparty:grass"; // Default to Grass block
 																// static public int SelectedToolID { get; set; } = 0; // Default to Place Block tool
 	static VoxelTool SelectedTool = null;
 
-	public static void SelectItem( int item )
+	public static void SelectItem( string item )
 	{
 		if ( itemButtons.ContainsKey( item ) )
 		{
@@ -64,7 +64,7 @@ public partial class VoxelBuilder : EditorTool
 		watchers.Add( watcher ); // Cast to object to store in the list.
 	}
 
-	static Dictionary<int, ImageButton> itemButtons = new Dictionary<int, ImageButton>();
+	static Dictionary<string, ImageButton> itemButtons = new Dictionary<string, ImageButton>();
 	public static WidgetWindow ToolOptionsWindow;
 	public override void OnEnabled()
 	{
@@ -94,29 +94,29 @@ public partial class VoxelBuilder : EditorTool
 		}
 
 		int i = 0;
-		foreach ( var item in ResourceLibrary.GetAll<Item>().DistinctBy( c => c.ID ).OrderBy( c => c.ID ) )
+		foreach ( var item in ResourceLibrary.GetAll<Item>().DistinctBy( c => c.Identifier ).OrderBy( c => c.Identifier ) )
 		{
-			if ( item.ID == 0 ) continue; // Skip empty item
+			if ( item.Identifier == "voxelparty:air" ) continue; // Skip empty item
 			if ( item.IsBlock )
 			{
 				var icon = new ImageButton();
-				itemButtons[item.ID] = icon;
+				itemButtons[item.Identifier] = icon;
 				using ( var tex = EditorHelpers.RenderItem( item ) )
 				{
 					icon.Texture = tex;
 				}
 				icon.FixedSize = new Vector2( 32, 32 );
-				icon.Tint = SelectedItemID == item.ID ? Color.White.WithAlpha( 0.2f ) : Color.White.WithAlpha( 0f );
+				icon.Tint = SelectedItemID == item.Identifier ? Color.White.WithAlpha( 0.2f ) : Color.White.WithAlpha( 0f );
 				icon.Clicked = () =>
 				{
 					if ( itemButtons.ContainsKey( SelectedItemID ) )
 					{
 						itemButtons[SelectedItemID].Tint = Color.White.WithAlpha( 0f );
 					}
-					SelectedItemID = item.ID;
+					SelectedItemID = item.Identifier;
 					icon.Tint = Color.White.WithAlpha( 0.2f );
 				};
-				icon.ToolTip = $"{item.Name} (ID: {item.ID})";
+				icon.ToolTip = $"{item.Name} (ID: {item.Identifier})";
 				gridLayout.AddCell( i % 6, i++ / 6, icon );
 			}
 		}

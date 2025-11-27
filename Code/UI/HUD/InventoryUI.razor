@@ -34,7 +34,7 @@
 	{
 		<div class="pallete-container">
 			<div class="container">
-				@foreach (var i in ItemRegistry.CachedRegistry.Where(c => c.Value.InPallete && c.Value.IsBlock).OrderBy(c =>
+				@foreach (var i in ItemRegistry.CachedIdentifierRegistry.Where(c => c.Value.InPallete && c.Value.IsBlock).OrderBy(c =>
 							c.Key).Select(c =>
 							c.Value))
 				{

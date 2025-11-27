@@ -186,7 +186,7 @@ public class SquarePlaceTool : VoxelTool
                 for ( int x = minX; x <= maxX; x++ )
                 {
                     var pos = new Vector3Int( x, y, z );
-                    if ( ReplaceExistingBlocks || World.Active.GetBlock( pos ).BlockID == 0 )
+                    if ( ReplaceExistingBlocks || !World.Active.GetBlock( pos ).IsEmpty() )
                     {
                         World.Active.SetBlock( pos, blockData );
                     }

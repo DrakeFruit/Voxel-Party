@@ -3,7 +3,7 @@ using System;
 [GameResource( "Item Definition", "item", "an item", Category = "Voxel Party", Icon = "archive" )]
 public partial class Item : GameResource
 {
-	[ReadOnly] public int ID { get; set; } = -1;
+	public string Identifier { get; set; } // Unique identifier for the item, e.g. "voxelparty:stick".
 	public string Name { get; set; } // Name of the item, e.g. "Stick".
 	public int MaxStackSize { get; set; } = 64; // Maximum stack size for this item, e.g. 64 for most items.
 
@@ -15,33 +15,13 @@ public partial class Item : GameResource
 	public Block Block { get; set; }
 
 	// Is this item spawnable by players?
-
-	[Button]
-	public void FixIDConflict()
-	{
-		if ( ResourceLibrary.GetAll<Item>().Count( c => c.ID == ID ) <= 1 )
-		{
-			Log.Warning( "No need to regenerate Item ID. Already unique!" );
-			return;
-		}
-		ID = -1;
-	}
 	public bool TryGiveID()
 	{
-		if ( ID == -1 )
-		{
-			var allitems = ResourceLibrary.GetAll<Item>();
-			Log.Info( $"Generated new item ID: {allitems.Count()}/256 used!" );
-			var usedIDs = allitems.Select( c => c.ID );
-			for ( int i = 0; i < 255; i++ )
-			{
-				if ( !usedIDs.Contains( i ) )
-				{
-					ID = i;
-					return true;
-				}
-			}
-		}
+		if (Identifier == null && !string.IsNullOrWhiteSpace(Name) )
+        {
+			Identifier = $"voxelparty:{Name.ToLower().Replace( " ", "_" )}";
+			return true;
+        }
 		return false;
 	}
 
@@ -61,11 +41,11 @@ public partial class Item : GameResource
 	public void Render( Transform transform )
 	{
 		// Draw a cube with the block's textures
-		var block = ItemRegistry.GetBlock( ID );
+		var block = ItemRegistry.GetBlockByIdentifier( Identifier );
 		if ( block == null )
 		{
 			ItemRegistry.UpdateRegistry();
-			Log.Error( $"Block with ID {ID} not found." );
+			Log.Error( $"Block with ID {Identifier} not found." );
 			return;
 		}
 

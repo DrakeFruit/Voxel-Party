@@ -7,7 +7,7 @@ public class WorldItem : Component, Component.ITriggerListener {
     private bool Spent = false;
 
     [Property]
-    public int ItemID {
+    public string ItemID {
         get => stack.ItemID;
         set {
             if ( stack.ItemID == value ) return;

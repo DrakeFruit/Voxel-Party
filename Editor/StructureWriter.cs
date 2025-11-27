@@ -49,7 +49,7 @@ public class StructureWriter : EditorTool
                 return;
             }
             
-            var structure = new Structure { StructureData = World.Active.SerializeRegion( FirstPosition, SecondPosition ) };
+            var structure = new Structure { StructureDataByID = World.Active.SerializeRegionByID( FirstPosition, SecondPosition ) };
             var path = EditorUtility.SaveFileDialog( "Save Your Structure", ".struct", FileSystem.Content.GetFullPath( "/structures" ) );
 	        File.WriteAllText(path, structure.Serialize().ToString());
         };

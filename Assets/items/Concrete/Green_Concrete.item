@@ -1,7 +1,9 @@
 {
   "ID": 49,
+  "Identifier": "voxelparty:green_concrete",
   "Name": "Green Concrete",
   "MaxStackSize": 64,
+  "InPallete": true,
   "IsBlock": true,
   "Block": {
     "IsSolid": true,
@@ -46,13 +48,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -70,7 +81,7 @@
     "EastTexture": null,
     "WestTexture": null,
     "BottomTexture": null,
-    "TextureIndex": 0,
+    "TextureIndex": 55,
     "TopTextureIndex": null,
     "SideTextureIndex": null,
     "NorthTextureIndex": null,

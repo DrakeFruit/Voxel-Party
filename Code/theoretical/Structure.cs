@@ -12,9 +12,8 @@ public partial class Structure : GameResource
 		Standard,
 		Hard
 	}
-
 	[Hide]
-	public string StructureData { get; set; }
+	public string StructureDataByID { get; set; }
 
 	[Property, ToggleGroup( "SpeedBuildStructure" )]
 	public bool SpeedBuildStructure { get; set; } = false;

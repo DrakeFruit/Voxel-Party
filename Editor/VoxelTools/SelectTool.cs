@@ -112,7 +112,7 @@ public class SelectTool : VoxelTool
     {
         NormalizePositions();
         var area = BlockData.GetAreaInBox( first, second - first + Vector3Int.One );
-        EditorUtility.Clipboard.Copy( World.Active.SerializeRegion( first, second ) );
+        EditorUtility.Clipboard.Copy( World.Active.SerializeRegionByID( first, second ) );
         SceneEditorSession.Active.QuickAddUndo( "Cut Region", () =>
         {
             for ( int x = 0; x < area.GetLength( 0 ); x++ )
@@ -135,7 +135,7 @@ public class SelectTool : VoxelTool
                     for ( int z = 0; z < area.GetLength( 2 ); z++ )
                     {
                         var pos = new Vector3Int( first.x + x, first.y + y, first.z + z );
-                        World.Active.SetBlock( pos, new BlockData( 0 ) );
+                        World.Active.SetBlock( pos, new BlockData( "voxelparty:air" ) );
                     }
                 }
             }
@@ -145,7 +145,7 @@ public class SelectTool : VoxelTool
     public void CopyRegion( Vector3Int first, Vector3Int second )
     {
         NormalizePositions();
-        EditorUtility.Clipboard.Copy( World.Active.SerializeRegion( first, second ) );
+        EditorUtility.Clipboard.Copy( World.Active.SerializeRegionByID( first, second ) );
         Log.Info( World.Active.GetStructureBounds( EditorUtility.Clipboard.Paste() ) );
     }
 
@@ -154,7 +154,7 @@ public class SelectTool : VoxelTool
         // Prefer pasting as a Structure?
 
         var str = EditorUtility.Clipboard.Paste();
-        var blockData = World.Active.GetStructureData( str );
+        var blockData = World.Active.GetStructureDataByID( str );
 
         if ( blockData == null )
         {
@@ -169,7 +169,7 @@ public class SelectTool : VoxelTool
         NormalizePositions();
         var first = FirstPosition.Value;
         var second = SecondPosition.Value;
-        var str = World.Active.SerializeRegion( first, second );
+        var str = World.Active.SerializeRegionByID( first, second );
 
         VoxelBuilder.SelectTool( new PasteStructureTool( str, this, first ) );
     }
@@ -179,7 +179,7 @@ public class SelectTool : VoxelTool
         NormalizePositions();
         var first = FirstPosition.Value;
         var second = SecondPosition.Value;
-        var str = World.Active.SerializeRegion( first, second );
+        var str = World.Active.SerializeRegionByID( first, second );
         ClearRegion( first, second );
         VoxelBuilder.SelectTool( new PasteStructureTool( str, this, first ) );
     }
@@ -210,7 +210,7 @@ public class SelectTool : VoxelTool
                     for ( int z = 0; z < area.GetLength( 2 ); z++ )
                     {
                         var pos = new Vector3Int( first.x + x, first.y + y, first.z + z );
-                        World.Active.SetBlock( pos, new BlockData( 0 ) );
+                        World.Active.SetBlock( pos, new BlockData( "voxelparty:air" ) );
                     }
                 }
             }
@@ -335,11 +335,9 @@ public class SelectTool : VoxelTool
 
         var size = second - first + Vector3Int.One;
         var blocks = BlockData.GetAreaInBox( first, size );
-        var structureData = World.Active.SerializeRegion( first, second );
-        var structure = new Structure { StructureData = structureData };
+        var structureData = World.Active.SerializeRegionByID( first, second );
+        var structure = new Structure { StructureDataByID = structureData };
         var path = EditorUtility.SaveFileDialog( "Save Your Structure", ".struct", Editor.FileSystem.Content.GetFullPath( "/structures" ) );
         System.IO.File.WriteAllText( path, structure.Serialize().ToString() );
     }
-
-
 }

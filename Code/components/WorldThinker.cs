@@ -13,20 +13,19 @@ public sealed class WorldThinker : Component, Component.ExecuteInEditor
 	[Property] public int UnloadBatchSize { get; set; } = 10; // Number of chunks to check to unload in each batch
 
 	[Property] public bool LoadAroundPlayer { get; set; } = true;
-
 	[Property, Hide]
-	public byte[] SerializedWorld
-	{
-		get
-		{
-			return World.Active?.Serialize().ToArray();
-		}
-		set
-		{
-			if ( value == null ) return;
-			World.Active?.Deserialize( value );
-		}
-	}
+	public byte[] SerializedWorldById
+    {
+        get
+        {
+            return World.Active?.SerializeByID().ToArray();
+        }
+        set
+        {
+            if ( value == null ) return;
+            World.Active?.DeserializeByID( value );
+        }
+    }
 
 	public World World = new();
 
@@ -64,11 +63,16 @@ public sealed class WorldThinker : Component, Component.ExecuteInEditor
 	[Button]
 	public void Regenerate()
 	{
-		var data = this.SerializedWorld;
+		var data = this.SerializedWorldById;
+		if(data == null || data.Length == 0 )
+		{
+			Log.Warning( "No serialized world data to regenerate from!" );
+			return;
+		}
 		foreach ( var child in GameObject.Children.ToList() )
 			child.DestroyImmediate();
 		World.SimulatedChunks.Clear();
-		this.SerializedWorld = data; // Re-apply the serialized world to regenerate it.
+		this.SerializedWorldById = data; // Re-apply the serialized world to regenerate it.
 		foreach ( var obj in Scene.GetAll<StructureLoader>() )
 		{
 			_ = obj.Regenerate(); // Re-run the OnEnabled logic to ensure the structure is loaded in the editor.
@@ -221,7 +225,7 @@ public sealed class WorldThinker : Component, Component.ExecuteInEditor
 
 		if ( spawnParticles ) SpawnBlockBreakParticles( position, expectedData );
 		// Remove the block at the specified position.
-		World.SetBlock( position, new BlockData( 0 ) ); // Assuming 0 is the ID for air.
+		World.SetBlock( position, new BlockData( "voxelparty:air" ) ); // Assuming 0 is the ID for air.
 	}
 
 	public void SpawnBlockBreakParticles( Vector3Int position, BlockData data )

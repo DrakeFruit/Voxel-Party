@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+
 public class Chunk
 {
 	public static readonly Vector3Int SIZE = new Vector3Int( 16, 16, 16 );
@@ -52,7 +55,7 @@ public class Chunk
 		{
 			throw new System.ArgumentOutOfRangeException( $"Coordinates ({x}, {y}, {z}) are out of bounds for chunk at ({X}, {Y}, {Z})." );
 		}
-		if ( blockData.BlockID != 0 )
+		if ( !blockData.IsEmpty() )
 		{
 			IsEmpty = false; // If we set a non-air block, the chunk is no longer empty.
 		}
@@ -86,47 +89,98 @@ public class Chunk
 		}
 	}
 
-	public IEnumerable<byte> Serialize()
-	{
-		var data = new List<byte>();
-		for ( int z = 0; z < SIZE.z; z++ )
+	public IEnumerable<byte> SerializeByID()
+    {
+		// Iterate through the chunk to determine the unique block IDs present.
+		List<(string id, byte data)> uniqueBlocks = new();
+		for (int z = 0; z < SIZE.z; z++)
 		{
-			for ( int y = 0; y < SIZE.y; y++ )
+			for (int y = 0; y < SIZE.y; y++)
 			{
-				for ( int x = 0; x < SIZE.x; x++ )
+				for (int x = 0; x < SIZE.x; x++)
 				{
-					var blockData = GetBlock( x, y, z );
-					data.Add( blockData.BlockID );
-					data.Add( blockData.BlockDataValue );
+					var blockData = GetBlock(x, y, z);
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					if (!uniqueBlocks.Any(b => b.id == blockID && b.data == blockData.BlockDataValue))
+					{
+						uniqueBlocks.Add((blockID, blockData.BlockDataValue));
+					}
 				}
 			}
 		}
-		return data.RunLengthEncodeBy( 2 );
-	}
+		var data = new List<byte>();
+		// Push the short count of unique blocks.
+		ushort uniqueCount = (ushort)uniqueBlocks.Count;
+		data.AddRange( BitConverter.GetBytes( uniqueCount ) );
+		// Push each unique block's identifier and data value.
+		foreach (var (id, blockDataValue) in uniqueBlocks ) {
+            data.Add((byte)id.Length);
+			data.AddRange(System.Text.Encoding.UTF8.GetBytes(id));
+			data.Add(blockDataValue);
+        }
+		// Now serialize the chunk using the indices of the unique blocks.
+		List<byte> chunkData = new();
+		for (int z = 0; z < SIZE.z; z++)
+        {
+			for (int y = 0; y < SIZE.y; y++)
+            {
+				for (int x = 0; x < SIZE.x; x++)
+                {
+					var blockData = GetBlock(x, y, z);
+					string blockID = blockData.IsEmpty() ? "voxelparty:air" : blockData.BlockID;
+					// Find the index of this block in the unique blocks list.
+					int index = uniqueBlocks.FindIndex(b => b.id == blockID && b.data == blockData.BlockDataValue);
+					chunkData.Add((byte)index);
+                }
+			}
+		}
+		data.AddRange(chunkData.RunLengthEncodeBy(1));
+		return data;
+    }
 
-	public void Deserialize( IEnumerable<byte> data )
+	public void DeserializeByID( IEnumerable<byte> data )
 	{
-		var dataList = data.RunLengthDecodeBy( 2 ).ToList();
-		if ( dataList.Count != SIZE.x * SIZE.y * SIZE.z * 2 )
+		var reader = new BinaryReader( new MemoryStream( data.ToArray() ) );
+		// Read the unique block count.
+		ushort uniqueCount = reader.ReadUInt16();
+		var uniqueBlocks = new List<(string id, byte data)>();
+		// Read each unique block's identifier and data value.
+		for ( int i = 0; i < uniqueCount; i++ )
 		{
-			Log.Warning( $"Invalid chunk data length: {dataList.Count}. Expected {SIZE.x * SIZE.y * SIZE.z * 2}." );
+			byte idLength = reader.ReadByte();
+			var idBytes = reader.ReadBytes( idLength );
+			string id = System.Text.Encoding.UTF8.GetString( idBytes );
+			byte blockDataValue = reader.ReadByte();
+			uniqueBlocks.Add( (id, blockDataValue) );
+		}
+		// Read out the rest of the data into a new list.
+		var compressedData = reader.ReadBytes( (int)(reader.BaseStream.Length - reader.BaseStream.Position) );
+		var dataList = compressedData.RunLengthDecodeBy( 1 ).ToList();
+		if ( dataList.Count != SIZE.x * SIZE.y * SIZE.z )
+		{
+			Log.Warning( $"Invalid chunk data length: {dataList.Count}. Expected {SIZE.x * SIZE.y * SIZE.z}." );
 			return;
 		}
+
 		for ( int z = 0; z < SIZE.z; z++ )
 		{
 			for ( int y = 0; y < SIZE.y; y++ )
 			{
 				for ( int x = 0; x < SIZE.x; x++ )
 				{
-					int index = (z * SIZE.y * SIZE.x + y * SIZE.x + x) * 2;
-					var blockID = dataList[index];
-					var blockDataValue = dataList[index + 1];
+					int index = (z * SIZE.y * SIZE.x + y * SIZE.x + x);
+					var uniqueIndex = dataList[index];
+					if ( uniqueIndex < 0 || uniqueIndex >= uniqueBlocks.Count )
+					{
+						Log.Warning( $"Invalid unique block index: {uniqueIndex}. Expected between 0 and {uniqueBlocks.Count - 1}." );
+						continue;
+					}
+					var (blockID, blockDataValue) = uniqueBlocks[uniqueIndex];
 					blocks[x, y, z] = new BlockData( blockID, blockDataValue );
-					if ( blockID != 0 )
+					if ( !blocks[x,y,z].IsEmpty() )
 						IsEmpty = false;
 				}
 			}
 		}
-		MarkDirty();
 	}
 }

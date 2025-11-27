@@ -1,13 +1,14 @@
+using System;
 using Sandbox;
 
 public struct BlockData
 {
-	public byte BlockID;
-	public byte BlockDataValue;
+	public string BlockID = "voxelparty:air";
+	public byte BlockDataValue = 0;
 
-	public static BlockData Empty = new BlockData( 0, 0 );
+	public static BlockData Empty = new BlockData( "voxelparty:air", 0 );
 
-	public BlockData( byte blockID, byte blockDataValue )
+	public BlockData( string blockID, byte blockDataValue )
 	{
 		BlockID = blockID;
 		BlockDataValue = blockDataValue;
@@ -39,20 +40,20 @@ public struct BlockData
 		return (Direction)this.BlockDataValue;
 	}
 
-	public BlockData( int blockType ) : this( (byte)blockType, 0 ) { }
+	public BlockData( string blockID ) : this( blockID, 0 ) { }
 
 	public Block GetBlock()
 	{
-		return ItemRegistry.GetBlock( BlockID );
+		return ItemRegistry.GetBlockByIdentifier( BlockID ) ?? ItemRegistry.GetBlockByIdentifier("voxelparty:air");
 	}
 
-	public static BlockData WithPlacementBlockData( int blockID, Direction placedFace, Vector3 cameraForward )
+	public static BlockData WithPlacementBlockData( string blockID, Direction placedFace, Vector3 cameraForward )
 	{
-		var block = ItemRegistry.GetBlock( blockID );
+		var block = ItemRegistry.GetBlockByIdentifier( blockID );
 		if ( block == null )
 			return BlockData.Empty;
 		if ( block.Rotateable )
-			return new BlockData( (byte)blockID, (byte)block.BestDirectionFrom( placedFace, cameraForward ) );
+			return new BlockData( blockID, (byte)block.BestDirectionFrom( placedFace, cameraForward ) );
 		return new BlockData( blockID );
 	}
 
@@ -77,6 +78,11 @@ public struct BlockData
 
 	public override int GetHashCode()
 	{
-		return (BlockID << 8) | BlockDataValue; // Combine BlockID and BlockDataValue into a single hash code
+		return HashCode.Combine(BlockID, BlockDataValue);
+	}
+
+	public bool IsEmpty()
+	{
+		return string.IsNullOrWhiteSpace(BlockID) || BlockID == "voxelparty:air";
 	}
 }

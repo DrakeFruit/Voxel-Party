@@ -1,17 +1,34 @@
 {
   "ID": 3,
+  "Identifier": "voxelparty:grass",
   "Name": "Grass",
   "MaxStackSize": 64,
+  "InPallete": true,
   "IsBlock": true,
   "Block": {
-    "Opaque": true,
-    "IsSolidBlock": true,
     "IsSolid": true,
     "Hardness": 1,
+    "StructureSoft": false,
+    "IsFullBlock": true,
     "BlockBoundsMins": "0,0,0",
     "BlockBoundsMaxs": "16,16,16",
     "Replaceable": false,
+    "Rotateable": false,
+    "RotateTextures": true,
+    "_validDirections": [
+      "North",
+      "South",
+      "East",
+      "West",
+      "Up",
+      "Down"
+    ],
+    "DefaultDirection": "None",
+    "CameraDirectionPlaced": false,
+    "FlipPlacedDirection": false,
+    "ValidPlacementOption": "StableAnywhere",
     "BreakParticle": "prefabs/break particles.prefab",
+    "Material": null,
     "WalkStepSound": "sounds/footsteps/grass/grass_walk.sound",
     "RunStepSound": "sounds/footsteps/grass/grass_run.sound",
     "CrouchStepSound": "sounds/footsteps/grass/grass_wander.sound",
@@ -19,6 +36,7 @@
     "PlaceSound": "sounds/blocks/grass/grass_place.sound",
     "BreakingSound": "sounds/blocks/grass/grass_break.sound",
     "BreakSound": "sounds/blocks/grass/grass_break.sound",
+    "Opaque": true,
     "Texture": {
       "$compiler": "texture",
       "$source": "imagefile",
@@ -30,13 +48,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -45,7 +72,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/f0af65039987d9c0.vtex"
+      "compiled": null
     },
     "TopTexture": {
       "$compiler": "texture",
@@ -58,13 +85,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -73,7 +109,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/f0af65039987d9c0.vtex"
+      "compiled": null
     },
     "SideTexture": {
       "$compiler": "texture",
@@ -86,13 +122,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -101,7 +146,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/953299706a9098f4.vtex"
+      "compiled": null
     },
     "NorthTexture": null,
     "SouthTexture": null,
@@ -118,13 +163,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -133,7 +187,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/9b061b6d15c32b16.vtex"
+      "compiled": null
     },
     "TextureIndex": 2,
     "TopTextureIndex": 2,
@@ -145,9 +199,9 @@
     "BottomTextureIndex": 1,
     "Drops": [
       {
-        "Item": "items/dirt.item",
+        "Item": "items/air.item",
         "Count": 1,
-        "ItemID": 2
+        "ItemID": 0
       }
     ],
     "BlockObject": null

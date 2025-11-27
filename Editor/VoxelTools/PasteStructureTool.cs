@@ -14,7 +14,7 @@ public class PasteStructureTool : VoxelTool
         var loader = ghost.AddComponent<StructureLoader>( false );
         loader.LoadedStructure = new Structure()
         {
-            StructureData = data
+            StructureDataByID = data
         };
         loader.Enabled = true;
         if ( StartPosition.HasValue )

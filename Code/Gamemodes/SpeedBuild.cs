@@ -182,7 +182,7 @@ public sealed class SpeedBuild : Gamemode
 						{
 							for ( int x = player.BuildAreaMins.x; x <= player.BuildAreaMaxs.x; x++ )
 							{
-								World.Active.SetBlock( new Vector3Int( x, y, z ), new BlockData( 0 ) );
+								World.Active.SetBlock( new Vector3Int( x, y, z ), new BlockData( "voxelparty:air" ) );
 							}
 						}
 					}
@@ -201,7 +201,7 @@ public sealed class SpeedBuild : Gamemode
 						for ( int x = 0; x < anyStructureData.GetLength( 0 ); x++ )
 						{
 							var block = anyStructureData[x, y, z];
-							player.inventory.PutInFirstAvailableSlot( new ItemStack( ItemRegistry.GetItem( block.BlockID ), 1 ) );
+							player.inventory.PutInFirstAvailableSlot( new ItemStack( ItemRegistry.GetItemByIdentifier( block.BlockID ), 1 ) );
 						}
 					}
 				}
@@ -236,7 +236,7 @@ public sealed class SpeedBuild : Gamemode
 					for ( int x = 0; x < anyStructureData.GetLength( 0 ); x++ )
 					{
 						var block = anyStructureData[x, y, z];
-						if ( block.BlockID != 0 )
+						if ( !block.IsEmpty() )
 							validBlocks++;
 					}
 				}
@@ -260,7 +260,7 @@ public sealed class SpeedBuild : Gamemode
 						for ( int x = 0; x < anyStructureData.GetLength( 0 ); x++ )
 						{
 							var block = anyStructureData[x, y, z];
-							if ( block.BlockID == 0 ) continue;
+							if ( block.IsEmpty() ) continue;
 							foreach ( var player in Players )
 							{
 								var pos = new Vector3Int( x, y, z ) + player.BuildAreaMins;

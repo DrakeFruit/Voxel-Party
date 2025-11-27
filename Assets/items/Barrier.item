@@ -1,5 +1,6 @@
 {
   "ID": 48,
+  "Identifier": "voxelparty:barrier",
   "Name": "Barrier",
   "MaxStackSize": 64,
   "InPallete": true,

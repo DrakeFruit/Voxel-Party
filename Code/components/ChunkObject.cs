@@ -65,36 +65,13 @@ public sealed class ChunkObject : Component, Component.ExecuteInEditor
 
 	void OnChunkDataChanged( byte[] value )
 	{
-		value = value.RunLengthDecodeBy( 2 ).ToArray();
 		var chunk = WorldInstance.GetChunk( ChunkPosition );
 		if ( chunk == null )
 		{
 			Log.Warning( $"Chunk at position {ChunkPosition} not found." );
 			return;
 		}
-		if ( value.Length != Chunk.SIZE.x * Chunk.SIZE.y * Chunk.SIZE.z * 2 )
-		{
-			Log.Warning( $"Invalid chunk data length: {value.Length}. Expected {Chunk.SIZE.x * Chunk.SIZE.y * Chunk.SIZE.z * 2}." );
-			return;
-		}
-		for ( int z = 0; z < Chunk.SIZE.z; z++ )
-		{
-			for ( int y = 0; y < Chunk.SIZE.y; y++ )
-			{
-				for ( int x = 0; x < Chunk.SIZE.x; x++ )
-				{
-					int index = (z * Chunk.SIZE.y * Chunk.SIZE.x + y * Chunk.SIZE.x + x) * 2;
-					var blockID = value[index];
-					var blockDataValue = value[index + 1];
-					var newData = new BlockData( blockID, blockDataValue );
-					if ( chunk.GetBlock( x, y, z ) == newData )
-					{
-						continue; // No change needed
-					}
-					chunk.SetBlock( x, y, z, newData );
-				}
-			}
-		}
+		chunk.DeserializeByID( value );
 	}
 
 	void UpdateChunkData()
@@ -107,21 +84,7 @@ public sealed class ChunkObject : Component, Component.ExecuteInEditor
 			return;
 		}
 		// Serialize the chunk data to a byte array.
-		byte[] data = new byte[Chunk.SIZE.z * Chunk.SIZE.y * Chunk.SIZE.x * 2];
-		int i = 0;
-		for ( int z = 0; z < Chunk.SIZE.z; z++ )
-		{
-			for ( int y = 0; y < Chunk.SIZE.y; y++ )
-			{
-				for ( int x = 0; x < Chunk.SIZE.x; x++ )
-				{
-					var blockData = chunk.GetBlock( x, y, z );
-					data[i++] = (blockData.BlockID); // Assuming BlockID is a byte
-					data[i++] = (blockData.BlockDataValue);
-				}
-			}
-		}
-		data = data.RunLengthEncodeBy( 2 ).ToArray();
+		var data = chunk.SerializeByID().ToArray();
 		ChunkData = data;
 		UpdateRequstedHash( Convert.ToBase64String( data ).GetHashCode() );
 		chunk.NetworkDirty = false;
@@ -137,10 +100,13 @@ public sealed class ChunkObject : Component, Component.ExecuteInEditor
 	{
 		// For testing, let's start by just creating a full single block for every block
 		var blockData = world.GetBlock( blockPos );
-		var block = ItemRegistry.GetBlock( blockData.BlockID );
+		var block = ItemRegistry.GetBlockByIdentifier( blockData.BlockID );
 		if ( block == null )
 		{
 			ItemRegistry.UpdateRegistry();
+		}
+		if( block == null )
+		{
 			Log.Warning( $"Block with ID {blockData.BlockID} not found at position {blockPos}." );
 			return;
 		}
@@ -181,7 +147,7 @@ public sealed class ChunkObject : Component, Component.ExecuteInEditor
 					{
 						var blockPos = new Vector3Int( x, y, z );
 						var blockData = world.GetBlock( blockPos + (chunkPos * Chunk.SIZE) );
-						var block = ItemRegistry.GetBlock( blockData.BlockID );
+						var block = ItemRegistry.GetBlockByIdentifier( blockData.BlockID );
 						if ( Networking.IsHost && BlockObjects.ContainsKey( blockPos ) && BlockObjects[blockPos].data != blockData )
 						{
 							DestroyBlockObjects.Add( blockPos );
@@ -223,7 +189,7 @@ public sealed class ChunkObject : Component, Component.ExecuteInEditor
 				{
 
 					var blockData = world.GetBlock( blockPos + (chunkPos * Chunk.SIZE) );
-					var block = ItemRegistry.GetBlock( blockData.BlockID );
+					var block = ItemRegistry.GetBlockByIdentifier( blockData.BlockID );
 					if ( !BlockObjects.ContainsKey( blockPos ) )
 					{
 

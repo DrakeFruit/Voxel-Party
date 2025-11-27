@@ -1,18 +1,34 @@
 {
   "ID": 23,
+  "Identifier": "voxelparty:pink_wool",
   "Name": "Pink Wool",
   "MaxStackSize": 64,
+  "InPallete": true,
   "IsBlock": true,
   "Block": {
     "IsSolid": true,
     "Hardness": 1,
+    "StructureSoft": false,
     "IsFullBlock": true,
     "BlockBoundsMins": "0,0,0",
     "BlockBoundsMaxs": "16,16,16",
     "Replaceable": false,
     "Rotateable": false,
     "RotateTextures": true,
+    "_validDirections": [
+      "North",
+      "South",
+      "East",
+      "West",
+      "Up",
+      "Down"
+    ],
+    "DefaultDirection": "None",
+    "CameraDirectionPlaced": false,
+    "FlipPlacedDirection": false,
+    "ValidPlacementOption": "StableAnywhere",
     "BreakParticle": "prefabs/break particles.prefab",
+    "Material": null,
     "WalkStepSound": "sounds/footsteps/rug/rug_walk.sound",
     "RunStepSound": "sounds/footsteps/rug/rug_walk.sound",
     "CrouchStepSound": "sounds/footsteps/rug/rug_walk.sound",
@@ -32,13 +48,22 @@
         "Rotate": 0,
         "FlipVertical": false,
         "FlipHorizontal": false,
-        "Padding": {
-          "Size": "0,0",
-          "EdgeSize": "0,0"
+        "Cropping": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
         },
-        "Sharpen": 0,
+        "Padding": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
         "InvertColor": false,
+        "Tint": "1,1,1,1",
         "Blur": 0,
+        "Sharpen": 0,
         "Brightness": 1,
         "Contrast": 1,
         "Saturation": 1,
@@ -47,7 +72,7 @@
         "TargetColor": "0,1,0,1",
         "CacheToDisk": true
       },
-      "compiled": "textures/generated/imagefile/1f8fb2f576c9fe46.vtex"
+      "compiled": null
     },
     "TopTexture": null,
     "SideTexture": null,
@@ -56,7 +81,7 @@
     "EastTexture": null,
     "WestTexture": null,
     "BottomTexture": null,
-    "TextureIndex": 29,
+    "TextureIndex": 30,
     "TopTextureIndex": null,
     "SideTextureIndex": null,
     "NorthTextureIndex": null,

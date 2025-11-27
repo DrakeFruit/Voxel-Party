@@ -205,7 +205,7 @@ public class Block
 				if ( pos.Within( ply.BuildAreaMins, ply.BuildAreaMaxs ) )
 				{
 					ply.inventory.PutInFirstAvailableSlot( new ItemStack( ItemRegistry.GetItem( pos ) ) );
-					world.SetBlock( pos, new BlockData( 0 ) );
+					world.SetBlock( pos, new BlockData( "voxelparty:air" ) );
 					return;
 				}
 			}
@@ -219,7 +219,7 @@ public class Block
 		}
 
 		// Just clear us.
-		world.SetBlock( pos, new BlockData( 0, 0 ) );
+		world.SetBlock( pos, new BlockData( "voxelparty:air", 0 ) );
 
 	}
 
@@ -306,7 +306,7 @@ public class Block
 		{
 			var adjacentPos = blockPos + face.Forward();
 			var adjacentBlockData = world.GetBlock( adjacentPos );
-			var adjacentBlock = ItemRegistry.GetBlock( adjacentBlockData.BlockID );
+			var adjacentBlock = ItemRegistry.GetBlockByIdentifier( adjacentBlockData.BlockID );
 			if ( adjacentBlock == null )
 			{
 				return true; // If no adjacent block, show the face.
@@ -322,7 +322,7 @@ public class Block
 			// Check if the adjacent block in the direction of the face is solid.
 			var adjacentPos = blockPos + face.Forward();
 			var adjacentBlockData = world.GetBlock( adjacentPos );
-			var adjacentBlock = ItemRegistry.GetBlock( adjacentBlockData.BlockID );
+			var adjacentBlock = ItemRegistry.GetBlockByIdentifier( adjacentBlockData.BlockID );
 			if ( adjacentBlock == null )
 			{
 				return true; // If no adjacent block, show the face.

@@ -25,8 +25,8 @@ public class World : BlockSpace
 					if ( x > 1 && y > 1 ) continue;
 					var pos = new Vector3Int( x, y, z );
 					SetBlock( pos, new BlockData( z < 1
-							? ItemRegistry.GetItem( "Dirt" ).ID
-							: ItemRegistry.GetItem( "Grass" ).ID ) );
+							? "voxelparty:dirt"
+							: "voxelparty:grass" ) );
 				}
 			}
 		}
