@@ -8,10 +8,10 @@ public class WorldItem : Component, Component.ITriggerListener {
 
     [Property]
     public string ItemID {
-        get => stack.ItemID;
+        get => stack.ItemIdentifier;
         set {
-            if ( stack.ItemID == value ) return;
-            stack = new ItemStack { ItemID = value, Count = 1 };
+            if ( stack.ItemIdentifier == value ) return;
+            stack = new ItemStack { ItemIdentifier = value, Count = 1 };
         }
     }
     [Property]
@@ -19,7 +19,7 @@ public class WorldItem : Component, Component.ITriggerListener {
         get => stack.Count;
         set {
             if ( stack.Count == value ) return;
-            stack = new ItemStack { ItemID = stack.ItemID, Count = value };
+            stack = new ItemStack { ItemIdentifier = stack.ItemIdentifier, Count = value };
         }
     }
 
@@ -47,7 +47,7 @@ public class WorldItem : Component, Component.ITriggerListener {
         _so.Flags.IsTranslucent = true;
 
         _so.RenderOverride = ( obj ) => {
-            var item = ItemRegistry.GetItem( stack.ItemID );
+            var item = ItemRegistry.GetItem( stack.ItemIdentifier );
             for ( int i = 0; i < Math.Min( RenderOffsets.Count, Math.Log2( stack.Count ) + 1 ); i++ ) {
                 var offset = RenderOffsets[i];
                 item.Render( global::Transform.Zero.WithPosition( offset ) );

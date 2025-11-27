@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Sandbox;
 using Sandbox.Mounting;
@@ -13,6 +14,9 @@ public sealed class WorldThinker : Component, Component.ExecuteInEditor
 	[Property] public int UnloadBatchSize { get; set; } = 10; // Number of chunks to check to unload in each batch
 
 	[Property] public bool LoadAroundPlayer { get; set; } = true;
+	[Property]
+	public string SerializedWorld { get; set; } // Bringing this back so we can force load the old-style worlds
+
 	[Property, Hide]
 	public byte[] SerializedWorldById
     {
@@ -79,6 +83,67 @@ public sealed class WorldThinker : Component, Component.ExecuteInEditor
 		}
 
 	}
+
+	[Button]
+	public void TryLoadOldWorld()
+    {
+		if ( string.IsNullOrWhiteSpace( SerializedWorld ) )
+        {
+			Log.Warning( "No serialized world data to load from!" );
+			return;
+        }
+		var data = Convert.FromBase64String( SerializedWorld );
+		// Manually deserialize the world from the old format.
+		var reader = new BinaryReader( new MemoryStream( data ) );
+		while (reader.BaseStream.Position < reader.BaseStream.Length )
+        {
+            int x  = reader.ReadInt32();
+			int y  = reader.ReadInt32();
+			int z  = reader.ReadInt32();
+			var chunkPosition = new Vector3Int( x, y, z );
+			var chunkDataLength = reader.ReadInt32();
+			var chunkData = reader.ReadBytes( chunkDataLength );
+			var chunk = World.GetChunk( chunkPosition );
+			// Manually deserialize the chunk data
+			var dataList = chunkData.RunLengthDecodeBy(2).ToList();
+			if (dataList.Count != Chunk.SIZE.x * Chunk.SIZE.y * Chunk.SIZE.z * 2)
+            {
+				Log.Error( $"Chunk data length mismatch for chunk at {chunkPosition}!" );
+				continue;
+            }
+			int index = 0;
+			for ( int cz = 0; cz < Chunk.SIZE.z; cz++ )
+			{
+				for ( int cy = 0; cy < Chunk.SIZE.y; cy++ )
+				{
+					for ( int cx = 0; cx < Chunk.SIZE.x; cx++ )
+					{
+						ushort blockID = (ushort)dataList[index];
+						if(blockID == 0)
+						{
+							// Air block
+							chunk.SetBlock( cx, cy, cz, new BlockData( "voxelparty:air" ) );
+							index += 2;
+							continue;
+						}
+						var blockByID = ResourceLibrary.GetAll<Item>().FirstOrDefault( i => i is Item it && it.ID == blockID ) as Item;
+						var blockIDName = "voxelparty:air";
+						if ( blockByID == null )
+						{
+							Log.Warning( $"Block with ID {blockID} not found in registry!" );
+                        }
+                        else
+                        {
+							blockIDName = blockByID.Identifier;
+                        }
+						chunk.SetBlock( cx, cy, cz, new BlockData( blockIDName,  dataList[index+1]) );
+						index += 2;
+					}
+				}
+			}
+		}
+
+    }
 
 	protected override void OnFixedUpdate()
 	{

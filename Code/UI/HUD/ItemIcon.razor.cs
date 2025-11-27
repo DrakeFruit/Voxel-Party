@@ -73,7 +73,7 @@ public partial class ItemIcon : Panel
         if ( VoxelPlayer.LocalPlayer is null ) return;
         if ( Slot != -1 )
             ItemStack = Inventory.GetItem( Slot );
-        if ( RenderTexture == null || ItemStack.Count != lastKnownStack?.Count || ItemStack.ItemID != lastKnownStack?.ItemID )
+        if ( RenderTexture == null || ItemStack.Count != lastKnownStack?.Count || ItemStack.ItemIdentifier != lastKnownStack?.ItemIdentifier )
         {
             lastKnownStack = ItemStack;
             Render();

@@ -5,13 +5,13 @@ using Sandbox;
 
 public class ItemStack
 {
-    public static readonly ItemStack Empty = new ItemStack { ItemID = "voxelparty:air", Count = 0 };
+    public static readonly ItemStack Empty = new ItemStack { ItemIdentifier = "voxelparty:air", Count = 0 };
 
     public Item Item { get; set; } // The ID of the item in the stack, e.g. 0x01 for Stone.
     public int Count { get; set; } // The number of items in the stack
 
     [Hide]
-    public string ItemID
+    public string ItemIdentifier
     {
         get
         {
@@ -27,9 +27,9 @@ public class ItemStack
     {
         var serialized = new List<byte>
 		{
-			(byte)ItemID.Length
+			(byte)ItemIdentifier.Length
 		};
-        serialized.AddRange( System.Text.Encoding.UTF8.GetBytes( ItemID ) ); // Serialize the item ID
+        serialized.AddRange( System.Text.Encoding.UTF8.GetBytes( ItemIdentifier ) ); // Serialize the item ID
         serialized.AddRange( BitConverter.GetBytes( Count ) ); // Serialize the count
         return serialized; // Return the serialized data as a byte array
     }
@@ -44,14 +44,14 @@ public class ItemStack
         size = 1 + idLength + 4; // Calculate the total size of the serialized data
         return new ItemStack
         {
-            ItemID = itemID, // Set the item ID
+            ItemIdentifier = itemID, // Set the item ID
             Count = count // Set the count
         };
     }
 
     public static bool IsNullOrEmpty( ItemStack stack )
     {
-        return stack == null || stack.ItemID == "voxelparty:air" || string.IsNullOrWhiteSpace( stack.ItemID ) || stack.Count == 0;
+        return stack == null || stack.ItemIdentifier == "voxelparty:air" || string.IsNullOrWhiteSpace( stack.ItemIdentifier ) || stack.Count == 0;
     }
 
     // Spawn an instance of this item in the world at the specified position
@@ -67,7 +67,7 @@ public class ItemStack
 
     public ItemStack()
     {
-        ItemID = "voxelparty:air"; // Default item ID
+        ItemIdentifier = "voxelparty:air"; // Default item ID
         Count = 0; // Default count
     }
 
@@ -101,7 +101,7 @@ public class ItemStack
             return false; // Cannot merge with an empty stack
         if ( IsNullOrEmpty( this ) )
             return false; // Cannot merge with an empty stack
-        if ( this.ItemID != other.ItemID )
+        if ( this.ItemIdentifier != other.ItemIdentifier )
             return false; // Cannot merge stacks with different item IDs
         if ( this.Count >= Item.MaxStackSize )
             return false; // Cannot merge if this stack is already at max capacity

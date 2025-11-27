@@ -3,6 +3,8 @@ using System;
 [GameResource( "Item Definition", "item", "an item", Category = "Voxel Party", Icon = "archive" )]
 public partial class Item : GameResource
 {
+	[Property]
+	public byte ID { get; set; } // Numeric ID for the item, brought back for legacy reasons.
 	public string Identifier { get; set; } // Unique identifier for the item, e.g. "voxelparty:stick".
 	public string Name { get; set; } // Name of the item, e.g. "Stick".
 	public int MaxStackSize { get; set; } = 64; // Maximum stack size for this item, e.g. 64 for most items.
