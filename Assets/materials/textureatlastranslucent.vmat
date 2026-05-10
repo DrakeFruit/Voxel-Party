@@ -2,13 +2,8 @@
 
 Layer0
 {
-	shader "shaders/pointshadertranslucent.shader"
-
-	Abledo "materials/default/default_color.tga"
+	shader "shaders/pointshader2.shader"
 
 	//---- Fog ----
 	g_bFogEnabled "1"
-
-	//---- Translucent ----
-	g_flOpacityScale "1.000"
 }

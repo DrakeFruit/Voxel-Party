@@ -1,13 +1,13 @@
 {
   "IsSubgraph": false,
-  "Path": "shaders/pixel.shdrgrph",
+  "Path": "shaders/pixel2.shdrgrph",
   "Model": null,
   "Title": null,
   "Description": "",
   "Category": null,
   "Icon": null,
   "AddToNodeLibrary": false,
-  "BlendMode": "Masked",
+  "BlendMode": "Opaque",
   "ShadingModel": "Lit",
   "Domain": "Surface",
   "PreviewSettings": {
@@ -32,14 +32,6 @@
       "Albedo": {
         "Identifier": "1",
         "Output": "Result"
-      },
-      "Opacity": {
-        "Identifier": "1",
-        "Output": "A"
-      },
-      "Roughness": {
-        "Identifier": "2",
-        "Output": "Result"
       }
     },
     {
@@ -51,7 +43,7 @@
         "AddressV": "Wrap"
       },
       "UI": {
-        "Name": "Albedo",
+        "Name": null,
         "IsAttribute": false,
         "Default": "1,1,1,1",
         "Extension": "Color",
@@ -72,40 +64,7 @@
         }
       },
       "Identifier": "1",
-      "Position": "-180,-204",
-      "HandleOffsets": {}
-    },
-    {
-      "_class": "TextureSampler",
-      "Image": "materials/dev/white_color.tga",
-      "Sampler": {
-        "Filter": "Point",
-        "AddressU": "Wrap",
-        "AddressV": "Wrap"
-      },
-      "UI": {
-        "Name": "Roughness",
-        "IsAttribute": false,
-        "Default": "1,1,1,1",
-        "Extension": "Color",
-        "CustomExtension": null,
-        "ShowExtension": true,
-        "Processor": "None",
-        "ColorSpace": "Srgb",
-        "ImageFormat": "DXT5",
-        "SrgbRead": true,
-        "Priority": 0,
-        "PrimaryGroup": {
-          "Name": null,
-          "Priority": 0
-        },
-        "SecondaryGroup": {
-          "Name": null,
-          "Priority": 0
-        }
-      },
-      "Identifier": "2",
-      "Position": "-180,12",
+      "Position": "-144,-96",
       "HandleOffsets": {}
     }
   ]

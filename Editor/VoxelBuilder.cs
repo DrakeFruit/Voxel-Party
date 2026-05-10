@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -193,7 +193,7 @@ public partial class VoxelBuilder : EditorTool
 	private static TimeSince holdStart = 0f;
 	public override void OnUpdate()
 	{
-
+		Gizmo.Draw.Text($"{Gizmo.CurrentRay.Position}, ${Gizmo.CurrentRay.Forward}", Transform.Zero.WithPosition(new Vector3(0,0,20)));
 		Camera?.Scene.RenderAttributes.Set( "MAXDISTANCE", 10000f );
 		watchers.RemoveAll( w => w == null || w.Target == null || !w.Target.IsValid() );
 		foreach ( var watcher in watchers )

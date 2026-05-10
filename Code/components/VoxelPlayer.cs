@@ -53,7 +53,7 @@ public partial class VoxelPlayer : Component
     public Item GroundBlockL = null;
     public Item GroundBlockR = null;
     public bool IsFlying;
-    SceneCustomObject blockBreakEffect;
+    SpriteRenderer blockBreakEffect;
 
     public int IslandIndex = 0;
 
@@ -385,36 +385,15 @@ public partial class VoxelPlayer : Component
     public static int SelectedSlot = 0;
     public void SpawnBlockBreakingEffect()
     {
-        blockBreakEffect = new SceneCustomObject( Scene.SceneWorld );
-        blockBreakEffect.Flags.CastShadows = false;
-        blockBreakEffect.Flags.IsOpaque = false;
-        blockBreakEffect.Flags.IsTranslucent = true;
-        blockBreakEffect.RenderOverride = ( obj ) =>
-        {
-            if ( BreakingBlock == null )
-                return;
-            if ( world == null ) return;
-            var block = world.GetBlock( BreakingBlock.Value ).GetBlock();
-            var pos = (BreakingBlock.Value + Vector3.One * 0.5f) * World.BlockScale;
-            pos += BreakingFace.Forward() * World.BlockScale * 0.501f; // Offset slightly to avoid z-fighting
-            pos -= obj.Position;
-            var scale = World.BlockScale; // Scale the effect to half the block size
-            var right = BreakingFace.Right();
-            var up = BreakingFace.Up();
-            var p1 = pos - right * scale / 2f - up * scale / 2f;
-            var p2 = pos + right * scale / 2f - up * scale / 2f;
-            var p3 = p1 + up * scale;
-            var p4 = p2 + up * scale;
-            int progress = Math.Min( (int)(BreakTime * 20 / block.Hardness), 9 ); // TODO: based on BreakTime
-            Vector2Int textureIndex = new Vector2Int( 6 + progress, 15 );
-            var rect = Rect.FromPoints( textureIndex / 16f + Vector2.One / 160f, textureIndex / 16f + Vector2.One / 16f - Vector2.One / 160f ); // Assuming a texture atlas of 16x16, each tile is 0.0625 in UV space
-            var v1 = new Vertex( p1, rect.BottomLeft, Color.White );
-            var v2 = new Vertex( p2, rect.BottomRight, Color.White );
-            var v3 = new Vertex( p3, rect.TopLeft, Color.White );
-            var v4 = new Vertex( p4, rect.TopRight, Color.White );
-            blockBreakEffect.ColorTint = Color.White.WithAlpha( 1f );
-            Graphics.Draw( new List<Vertex> { v1, v2, v3, v4 }, 4, Material.Load( "materials/textureatlastranslucent.vmat" ), new RenderAttributes(), Graphics.PrimitiveType.TriangleStrip );
-        };
+        var go = new GameObject($"BlockBreakEffect: {Network.Owner.DisplayName}");
+        blockBreakEffect = go.AddComponent<SpriteRenderer>();
+        blockBreakEffect.Sprite = Sprite.FromTextures( Enumerable.Range( 0, 10 ).Select( i => Texture.LoadFromFileSystem( $"materials/block/destroy_stage_{i}.png", FileSystem.Mounted ) ).ToArray() );
+        blockBreakEffect.Color = Color.White;
+        blockBreakEffect.CurrentFrameIndex = 0;
+        blockBreakEffect.Size = new Vector2( World.BlockScale * 1.0f ); // Slightly larger than block to avoid z-fighting
+        blockBreakEffect.Billboard = SpriteRenderer.BillboardMode.None;
+        blockBreakEffect.TextureFilter = Sandbox.Rendering.FilterMode.Point;
+        blockBreakEffect.Enabled = false;
     }
     public void HandleBreak()
     {
@@ -430,7 +409,7 @@ public partial class VoxelPlayer : Component
             BreakingFace = Direction.None;
             LastBreakingFace = Direction.None;
             BreakTime = 0f;
-
+            blockBreakEffect.Enabled = false;
             return;
         }
 
@@ -449,24 +428,39 @@ public partial class VoxelPlayer : Component
 
         BreakingBlock = trace.HitBlockPosition;
         //TODO: fix this shit
-        // if ( LastBreakingBlock != BreakingBlock || LastBreakingFace != BreakingFace )
-        // {
-        //  BreakingBlock = null;
-        //  BreakingFace = trace.HitFace;
-        //  BreakTime = 0f;
-        //  
-        //  return;
-        // }
+        if ( LastBreakingBlock != BreakingBlock || LastBreakingFace != BreakingFace )
+        {
+         LastBreakingBlock = BreakingBlock;
+         LastBreakingFace = BreakingFace;
+         BreakingBlock = null;
+         BreakingFace = trace.HitFace;
+         BreakTime = 0f;
+         
+         return;
+        }
 
         if ( !CreativeMode )
         {
-            blockBreakEffect.Transform = global::Transform.Zero.WithPosition( WorldPosition );
             var block = world.GetBlock( BreakingBlock.Value ).GetBlock();
+            if (block.Hardness <= 0 )
+            {
+                blockBreakEffect.Enabled = false;
+                return; // Unbreakable block
+            }
+            blockBreakEffect.WorldPosition = (BreakingBlock.Value + Vector3.One * 0.5f + BreakingFace.Forward() * 0.501f) * World.BlockScale;
+            blockBreakEffect.WorldRotation = Rotation.LookAt( BreakingFace.Forward(), Vector3.Up );
+            blockBreakEffect.Transform.ClearInterpolation();
+            blockBreakEffect.Enabled = true;
+
+
             BreakingProgress = Math.Min( (int)(BreakTime * 20 / block.Hardness), 10 );
+            blockBreakEffect.CurrentFrameIndex = BreakingProgress;
         }
 
         if ( (BreakingProgress == 10 || CreativeMode) && BreakingBlock.HasValue )
         {
+            var block = world.GetBlock( BreakingBlock.Value ).GetBlock();
+            if (block.Hardness <= 0) return; // Unbreakable block
             if ( !GiveBrokenBlocks )
             {
                 world.Thinker.BreakBlock( BreakingBlock.Value, world.GetBlock( BreakingBlock.Value ) );
@@ -622,4 +616,10 @@ public partial class VoxelPlayer : Component
     {
         IsFlying = true;
     }
+
+	protected override void OnDestroy()
+	{
+        blockBreakEffect?.GameObject?.Destroy();
+		base.OnDestroy();
+	}
 }

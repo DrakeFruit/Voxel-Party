@@ -93,7 +93,7 @@
       {
         "Item": null,
         "Count": 1,
-        "ItemID": 0
+        "ItemIdentifier": "voxelparty:air"
       }
     ],
     "BlockObject": null

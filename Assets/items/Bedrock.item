@@ -7,7 +7,7 @@
   "IsBlock": true,
   "Block": {
     "IsSolid": true,
-    "Hardness": 1,
+    "Hardness": -1,
     "StructureSoft": false,
     "IsFullBlock": true,
     "BlockBoundsMins": "0,0,0",
@@ -81,7 +81,7 @@
     "EastTexture": null,
     "WestTexture": null,
     "BottomTexture": null,
-    "TextureIndex": 4,
+    "TextureIndex": 1,
     "TopTextureIndex": null,
     "SideTextureIndex": null,
     "NorthTextureIndex": null,

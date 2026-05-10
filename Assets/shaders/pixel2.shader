@@ -19,7 +19,7 @@ MODES
 COMMON
 {
 	#ifndef S_ALPHA_TEST
-	#define S_ALPHA_TEST 1
+	#define S_ALPHA_TEST 0
 	#endif
 	#ifndef S_TRANSLUCENT
 	#define S_TRANSLUCENT 0
@@ -35,7 +35,6 @@ struct VertexInput
 {
 	#include "common/vertexinput.hlsl"
 	float4 vColor : COLOR0 < Semantic( Color ); >;
-	//float4 vTexCoord : TEXCOORD0 < Semantic( Uvwx ); >;
 };
 
 struct PixelInput
@@ -61,9 +60,7 @@ VS
 		PixelInput i = ProcessVertex( v );
 		i.vPositionOs = v.vPositionOs.xyz;
 		i.vColor = v.vColor;
-
 		
-		i.vTextureCoords = float4(v.vTexCoord.x, v.vTexCoord.y, v.vTexCoord2.x, v.vTexCoord2.y);
 		ExtraShaderData_t extraShaderData = GetExtraPerInstanceShaderData( v.nInstanceTransformID );
 		i.vTintColor = extraShaderData.vTint;
 		
@@ -79,13 +76,10 @@ PS
 	RenderState( CullMode, F_RENDER_BACKFACES ? NONE : DEFAULT );
 		
 	SamplerState g_sSampler0 < Filter( POINT ); AddressU( WRAP ); AddressV( WRAP ); >;
-	CreateInputTexture2D( Albedo, Srgb, 8, "None", "_color", ",0/,0/0", DefaultFile( "materials/dev/white_color.tga" ) );
-	CreateInputTexture2D( Roughness, Srgb, 8, "None", "_color", ",0/,0/0", DefaultFile( "materials/dev/white_color.tga" ) );
-	Texture2D g_tAlbedo < Channel( RGBA, Box( Albedo ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
-	Texture2D g_tRoughness < Channel( RGBA, Box( Roughness ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
-	TextureAttribute( LightSim_DiffuseAlbedoTexture, g_tAlbedo )
-	TextureAttribute( RepresentativeTexture, g_tAlbedo )
-	float g_flspriteSize < Attribute( "spriteSize" ); Default1( 16 ); >;
+	CreateInputTexture2D( Texture_ps_0, Srgb, 8, "None", "_color", ",0/,0/0", DefaultFile( "materials/dev/white_color.tga" ) );
+	Texture2D g_tTexture_ps_0 < Channel( RGBA, Box( Texture_ps_0 ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
+	TextureAttribute( LightSim_DiffuseAlbedoTexture, g_tTexture_ps_0 )
+	TextureAttribute( RepresentativeTexture, g_tTexture_ps_0 )
 	
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
@@ -101,30 +95,11 @@ PS
 		m.Emission = float3( 0, 0, 0 );
 		m.Transmission = 0;
 		
+		float4 l_0 = Tex2DS( g_tTexture_ps_0, g_sSampler0, i.vTextureCoords.xy );
 		
-		float3 l_0 = i.vTextureCoords.xyz;
-		l_0.xy = clamp(l_0.xy, 0.05, 0.95);
-		int index = int(l_0.z+0.1);
-		float2 texSize;
-        g_tAlbedo.GetDimensions(texSize.x, texSize.y);
-		int tilesWide = int(texSize.x / int(g_flspriteSize));
-		int tileX = index % tilesWide;
-		int tileY = index / tilesWide;
-		l_0.x = (l_0.x + tileX) / tilesWide;
-		l_0.y = (l_0.y + tileY) / tilesWide;
-
-		float4 l_10 = Tex2DS( g_tAlbedo, g_sSampler0, l_0.xy );
-
-		if(l_10.r == 1.0 && l_10.g == 0.0 && l_10.b == 1.0)
-			discard;
-		if(l_10.a < 0.5)
-			discard;
-
-		float4 l_1 = Tex2DS( g_tRoughness, g_sSampler0, i.vTextureCoords.xy );
-		
-		m.Albedo = l_10.xyz;
-		m.Opacity = l_10.a;
-		m.Roughness = 1.0;
+		m.Albedo = l_0.xyz;
+		m.Opacity = 1;
+		m.Roughness = 1;
 		m.Metalness = 0;
 		m.AmbientOcclusion = 1;
 		

@@ -8,12 +8,12 @@ public static class TexArrayTool
     {
         if ( !Dirty && last != null && last.IsValid() )
         {
-            material.Set( "Abledo", last );
+            material.Set( "Albedo", last );
             return;
         }
 
         //Log.Info( "Updating material texture with texture atlas." );
-        material.Set( "Abledo", await BuildTextureArray() );
+        material.Set( "Albedo", await BuildTextureArray() );
         Dirty = false;
     }
 

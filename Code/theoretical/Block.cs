@@ -280,12 +280,30 @@ public class Block
 		var tangent = new Vector4( up, -1f );
 		// Add vertices, normals, and UVs based on the face direction.
 		var chunkPos = ((Vector3)blockPos).Modulo( Chunk.SIZE );
-		verts.Add( new Vertex( ((forward + up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 0f, textureIndex, 0f ) ) );
-		verts.Add( new Vertex( ((forward + up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 0f, textureIndex, 0f ) ) );
-		verts.Add( new Vertex( ((forward - up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 1f, textureIndex, 0f ) ) );
-		verts.Add( new Vertex( ((forward + up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 0f, textureIndex, 0f ) ) );
-		verts.Add( new Vertex( ((forward - up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 1f, textureIndex, 0f ) ) );
-		verts.Add( new Vertex( ((forward - up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 1f, textureIndex, 0f ) ) );
+		verts.Add( new Vertex( ((forward + up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 0f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 1f, 0f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
+		verts.Add( new Vertex( ((forward + up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 0f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 0f, 0f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
+		verts.Add( new Vertex( ((forward - up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 1f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 0f, 1f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
+		verts.Add( new Vertex( ((forward + up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 0f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 1f, 0f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
+		verts.Add( new Vertex( ((forward - up - right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 0f, 1f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 0f, 1f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
+		verts.Add( new Vertex( ((forward - up + right + Vector3.One) / 2f + chunkPos) * World.BlockScale, forward, tangent, new Vector4( 1f, 1f, textureIndex, 0f ) ){
+			TexCoord0 = new Vector4( 1f, 1f, 0f, 0f),
+			TexCoord1 = new Vector4(textureIndex, 0f, 0f, 0f)
+		} );
 	}
 
 	public virtual bool IsFaceOpaque( BlockSpace world, Vector3Int blockPos, Direction face )

@@ -2,9 +2,9 @@
 
 Layer0
 {
-	shader "shaders/pointshader.shader"
+	shader "shaders/pixel2.shader"
 
-	Abledo "materials/block/oak_planks.png"
+	Texture_ps_0 "materials/block/oak_planks.png"
 
 	//---- Fog ----
 	g_bFogEnabled "1"
